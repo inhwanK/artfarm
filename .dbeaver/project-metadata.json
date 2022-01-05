@@ -1,1 +1,1 @@
-{"resources":{"Scripts/Script.sql":{"sql-editor-data-source-id":"mysql8-17e236188e9-3157a27bd1fb2123","default-datasource":"mysql8-17e236188e9-3157a27bd1fb2123"}}}
+{"resources":{"Scripts/Cloud DB Test.sql":{"sql-editor-data-source-id":"mysql8-17e28cdc8bd-7a33fa1ee58fcc90","default-datasource":"mysql8-17e28cdc8bd-7a33fa1ee58fcc90","default-catalog":"artfarm_web"},"Scripts/Local DB test.sql":{"sql-editor-data-source-id":"mysql8-17e28cf684d-6e59e6da3f5dbbf5","default-datasource":"mysql8-17e28cf684d-6e59e6da3f5dbbf5","default-catalog":"artfarm"}}}
