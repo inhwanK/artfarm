@@ -35,9 +35,13 @@ dependencies {
 	
 	// mysql
 	implementation 'mysql:mysql-connector-java:8.0.27'
-	
+
+	// thymeleaf	
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
+
 	// security
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client'
+	// implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client'
 }
 
 test {
