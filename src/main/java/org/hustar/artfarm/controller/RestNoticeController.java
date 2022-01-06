@@ -30,6 +30,10 @@ public class RestNoticeController {
 //	공지사항 세부
 //	get
 //	/api/notice/{id}
+	@GetMapping("/notice/{noticeIdx}")
+	public NoticeResponseDto getNotice(Long noticeIdx) {
+		return noticeService.getNotice(noticeIdx);
+	}
 	
 //	공지사항 등록
 	@PutMapping("/notice")
