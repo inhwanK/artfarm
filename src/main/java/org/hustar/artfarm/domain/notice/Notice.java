@@ -20,7 +20,7 @@ public class Notice {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long noticeId;
+	private Long noticeIdx;
 	
 	private String title;
 	private String content;
@@ -30,10 +30,10 @@ public class Notice {
 	private Date updateDate;
 
 	@Builder
-	public Notice(Long noticeId, String title, String content, String writer, Long views, Date registDate,
+	public Notice(Long noticeIdx, String title, String content, String writer, Long views, Date registDate,
 			Date updateDate) {
 		super();
-		this.noticeId = noticeId;
+		this.noticeIdx = noticeIdx;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
