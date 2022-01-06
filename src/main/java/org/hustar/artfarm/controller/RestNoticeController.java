@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,9 +29,8 @@ public class RestNoticeController {
 	}
 	
 //	공지사항 세부
-//	get
-//	/api/notice/{id}
-	@GetMapping("/notice/{noticeIdx}")
+//	/api/notice?noticeIdx=1
+	@GetMapping("/notice")
 	public NoticeResponseDto getNotice(Long noticeIdx) {
 		return noticeService.getNotice(noticeIdx);
 	}
@@ -43,7 +43,7 @@ public class RestNoticeController {
 	
 //	공지사항 수정
 //	patch 
-//	/api/notice/{id}
+//	/api/notice?noticeIdx=1
 	
 //	공지사항 삭제
 	@DeleteMapping("/notice/{noticeIdx}")
