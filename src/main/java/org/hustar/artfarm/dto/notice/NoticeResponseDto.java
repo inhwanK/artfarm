@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import org.hustar.artfarm.domain.notice.Notice;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,7 +13,23 @@ import lombok.Setter;
 @NoArgsConstructor
 public class NoticeResponseDto {
 	
-	
+	private Long noticeIdx;
+	private String title;
+	private String content;
+	private String writer;
+	private Long views;
+	private Date registDate;
+	private Date updateDate;
+
+	public NoticeResponseDto(Notice entity) {
+		this.noticeIdx = entity.getNoticeIdx();
+		this.title = entity.getTitle();
+		this.content = entity.getContent();
+		this.writer = entity.getWriter();
+		this.views = entity.getViews();
+		this.registDate = entity.getRegistDate();
+		this.updateDate = entity.getUpdateDate();
+	}
 	
 	
 }
