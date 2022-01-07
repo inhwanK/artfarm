@@ -6,6 +6,7 @@ import org.hustar.artfarm.domain.notice.Notice;
 import org.hustar.artfarm.domain.notice.NoticeRepository;
 import org.hustar.artfarm.dto.notice.NoticeResponseDto;
 import org.hustar.artfarm.dto.notice.NoticeSaveRequestDto;
+import org.hustar.artfarm.dto.notice.NoticeUpdateRequestDto;
 import org.hustar.artfarm.service.NoticeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -44,15 +45,19 @@ public class NoticeServieImpl implements NoticeService {
 
 	@Transactional
 	@Override
-	public Long updateNotice() {
-		// TODO Auto-generated method stub
-		return null;
+	public Long updateNotice(Long noticeIdx, NoticeUpdateRequestDto requestDto) {
+		Notice notice = noticeRepository.findById(noticeIdx)
+				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + noticeIdx));;
+				
+		notice.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getUpdateDate());
+		return noticeIdx;
 	}
-	
+
 	@Transactional
 	@Override
 	public Long deleteNotice(Long noticeIdx) {
 		noticeRepository.deleteById(noticeIdx);
 		return noticeIdx;
 	}
+
 }

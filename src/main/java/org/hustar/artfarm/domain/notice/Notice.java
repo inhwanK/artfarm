@@ -1,6 +1,7 @@
 package org.hustar.artfarm.domain.notice;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -42,4 +43,9 @@ public class Notice {
 		this.updateDate = updateDate;
 	}
 
+	public void update(String title, String content, Date updateDate) {
+		this.title = title;
+		this.content = content;
+		this.updateDate = updateDate;
+	}
 }

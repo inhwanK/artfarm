@@ -1,6 +1,6 @@
 package org.hustar.artfarm.dto.notice;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.hustar.artfarm.domain.notice.Notice;
 
@@ -13,12 +13,12 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class NoticeSaveRequestDto {
-	
+
 	private String title;
 	private String content;
 	private String writer;
 	private Date registDate;
-	
+
 	@Builder
 	public NoticeSaveRequestDto(String title, String content, String writer, Date registDate) {
 		super();
@@ -27,13 +27,8 @@ public class NoticeSaveRequestDto {
 		this.writer = writer;
 		this.registDate = registDate;
 	}
-	
+
 	public Notice toEntity() {
-		return Notice.builder()
-				.title(title)
-				.content(content)
-				.writer(writer)
-				.registDate(registDate)
-				.build();
+		return Notice.builder().title(title).content(content).writer(writer).registDate(registDate).build();
 	}
 }
