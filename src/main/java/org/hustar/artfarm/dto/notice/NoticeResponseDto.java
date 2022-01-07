@@ -1,6 +1,7 @@
 package org.hustar.artfarm.dto.notice;
 
-import java.sql.Date;
+
+import java.util.Date;
 
 import org.hustar.artfarm.domain.notice.Notice;
 

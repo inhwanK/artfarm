@@ -2,6 +2,7 @@ package org.hustar.artfarm.service;
 
 import org.hustar.artfarm.dto.notice.NoticeResponseDto;
 import org.hustar.artfarm.dto.notice.NoticeSaveRequestDto;
+import org.hustar.artfarm.dto.notice.NoticeUpdateRequestDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -19,8 +20,9 @@ public interface NoticeService {
 	public Long registNotice(NoticeSaveRequestDto dto);
 	
 //	공지 수정
-	public Long updateNotice();
+	public Long updateNotice(Long noticeIdx, NoticeUpdateRequestDto requestDto);
 	
 //	공지 삭제
 	public Long deleteNotice(Long noticeIdx);
+
 }
