@@ -23,15 +23,14 @@ public class RestNoticeController {
 
 	private final NoticeService noticeService;
 
-//	공지사항 목록 뽑기
+//	공지사항 목록 뽑기, 페이징 처리 되어 있음. 
 	@GetMapping("/noticelist")
 	public Page<NoticeResponseDto> getNoticeList(Pageable pageable) {
-
 		return noticeService.getNoticeList(pageable);
 	}
 
 //	공지사항 세부
-//	/api/notice?noticeIdx=1
+//	/api/notice?noticeIdx=1 
 	@GetMapping("/notice")
 	public NoticeResponseDto getNotice(Long noticeIdx) {
 		return noticeService.getNotice(noticeIdx);
@@ -39,19 +38,19 @@ public class RestNoticeController {
 
 //	공지사항 등록
 	@PostMapping("/notice")
-	public Long registerNotice(NoticeSaveRequestDto dto) {
+	public Long registerNotice(@RequestBody NoticeSaveRequestDto dto) {
 		return noticeService.registNotice(dto);
 	}
 
 //	공지사항 수정
-	@PutMapping("/api/notice")
+	@PutMapping("/notice")
 	public Long updateNotice(Long noticeIdx, @RequestBody NoticeUpdateRequestDto dto) {
 
 		return noticeService.updateNotice(noticeIdx, dto);
 	}
 
 //	공지사항 삭제
-	@DeleteMapping("/notice/{noticeIdx}")
+	@DeleteMapping("/notice")
 	public Long deleteNotice(Long noticeIdx) {
 		return noticeService.deleteNotice(noticeIdx);
 	}
