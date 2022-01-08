@@ -8,8 +8,10 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class ExhibitionSaveRequestDto {
-
+public class ExhibitionResponseDto {
+	
+	private Long exhibitionIdx;
+	
 	private String title;
 	private String subTitle;
 	private String discription;
@@ -18,12 +20,15 @@ public class ExhibitionSaveRequestDto {
 	private String place;
 	private String url;
 	private boolean onOff;
-	private String thumbnail;
 	
+//	수정 가능성 많음
+	private String thumbnail;
+
 	@Builder
-	public ExhibitionSaveRequestDto(String title, String subTitle, String discription, String author, String category,
-			String place, String url, boolean onOff, String thumbnail) {
+	public ExhibitionResponseDto(Long exhibitionIdx, String title, String subTitle, String discription, String author,
+			String category, String place, String url, boolean onOff, String thumbnail) {
 		super();
+		this.exhibitionIdx = exhibitionIdx;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
