@@ -29,6 +29,11 @@ public class NoticeSaveRequestDto {
 	}
 
 	public Notice toEntity() {
-		return Notice.builder().title(title).content(content).writer(writer).registDate(registDate).build();
+		return Notice.builder()
+				.title(title)
+				.content(content)
+				.writer(writer)
+				.registDate(registDate)
+				.build();
 	}
 }
