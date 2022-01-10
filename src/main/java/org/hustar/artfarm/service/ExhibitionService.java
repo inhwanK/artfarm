@@ -2,8 +2,8 @@ package org.hustar.artfarm.service;
 
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface ExhibitionService {
 	

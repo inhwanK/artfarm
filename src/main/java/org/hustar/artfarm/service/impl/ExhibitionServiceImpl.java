@@ -1,23 +1,35 @@
 package org.hustar.artfarm.service.impl;
 
+import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.hustar.artfarm.service.ExhibitionService;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+import lombok.RequiredArgsConstructor;
+
+@Service
+@RequiredArgsConstructor
 public class ExhibitionServiceImpl implements ExhibitionService {
 
+	private final ExhibitionRepository exhibitionRepository;
+	
 	@Override
 	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return null;
+		Page<ExhibitionResponseDto> exhibitionList =
+				exhibitionRepository.findAllByOrderByExhibitionIdxDesc(pageable).map(entity -> new ExhibitionResponseDto(entity));
+		
+		return exhibitionList;
 	}
 
 	@Override
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx) {
-		// TODO Auto-generated method stub
-		return null;
+		Exhibition entity = exhibitionRepository.findById(exhibitionIdx)
+				.orElseThrow(() -> new IllegalArgumentException("해당 전시회 정보가 없습니다. id="+ exhibitionIdx));
+		return new ExhibitionResponseDto(entity);
 	}
 
 	@Override
