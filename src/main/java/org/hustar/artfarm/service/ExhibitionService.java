@@ -11,7 +11,7 @@ public interface ExhibitionService {
 	
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 	
-	public Long registExhibition(ExhibitionSaveUpdateRequestDto dto);
+	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto);
 	
 	public Long updateExhibition(Long exhibitionIdx, ExhibitionSaveUpdateRequestDto dto);
 	

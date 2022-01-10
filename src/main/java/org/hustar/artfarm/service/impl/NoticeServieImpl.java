@@ -39,7 +39,7 @@ public class NoticeServieImpl implements NoticeService {
 
 	@Transactional
 	@Override
-	public Long registNotice(NoticeSaveRequestDto dto) {
+	public Long registerNotice(NoticeSaveRequestDto dto) {
 		return noticeRepository.save(dto.toEntity()).getNoticeIdx();
 	}
 
@@ -47,7 +47,7 @@ public class NoticeServieImpl implements NoticeService {
 	@Override
 	public Long updateNotice(Long noticeIdx, NoticeUpdateRequestDto requestDto) {
 		Notice notice = noticeRepository.findById(noticeIdx)
-				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + noticeIdx));;
+				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + noticeIdx));
 				
 		notice.update(requestDto.getTitle(), requestDto.getContent(), requestDto.getUpdateDate());
 		return noticeIdx;

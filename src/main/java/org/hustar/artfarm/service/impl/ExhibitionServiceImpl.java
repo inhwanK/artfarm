@@ -2,6 +2,7 @@ package org.hustar.artfarm.service.impl;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
+import org.hustar.artfarm.domain.notice.Notice;
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.hustar.artfarm.service.ExhibitionService;
@@ -33,21 +34,33 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	}
 
 	@Override
-	public Long registExhibition(ExhibitionSaveUpdateRequestDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto) {
+		
+		return exhibitionRepository.save(dto.toEntity()).getExhibitionIdx();
 	}
 
 	@Override
 	public Long updateExhibition(Long exhibitionIdx, ExhibitionSaveUpdateRequestDto dto) {
-		// TODO Auto-generated method stub
-		return null;
+		Exhibition exhibition = exhibitionRepository.findById(exhibitionIdx)
+				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + exhibitionIdx));
+		
+		exhibition.builder()
+			.title(dto.getTitle())
+			.subTitle(dto.getSubTitle())
+			.discription(dto.getDiscription())
+			.author(dto.getAuthor())
+			.category(dto.getCategory())
+			.place(dto.getPlace())
+			.url(dto.getUrl())
+			.onOff(dto.isOnOff())
+			.thumbnail(dto.getThumbnail());
+		return exhibitionIdx;
 	}
 
 	@Override
 	public Long deleteExhibition(Long exhibitionIdx) {
-		// TODO Auto-generated method stub
-		return null;
+		exhibitionRepository.deleteById(exhibitionIdx);
+		return exhibitionIdx;
 	}
 
 }

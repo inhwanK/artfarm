@@ -17,7 +17,7 @@ public interface NoticeService {
 	public NoticeResponseDto getNotice(Long noticeIdx);
 
 //	공지 등록
-	public Long registNotice(NoticeSaveRequestDto dto);
+	public Long registerNotice(NoticeSaveRequestDto dto);
 	
 //	공지 수정
 	public Long updateNotice(Long noticeIdx, NoticeUpdateRequestDto requestDto);
