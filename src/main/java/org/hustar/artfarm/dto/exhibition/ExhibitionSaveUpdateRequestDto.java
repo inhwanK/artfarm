@@ -1,6 +1,8 @@
 package org.hustar.artfarm.dto.exhibition;
 
-import groovy.transform.builder.Builder;
+import org.hustar.artfarm.domain.exhibition.Exhibition;
+
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -35,5 +37,17 @@ public class ExhibitionSaveUpdateRequestDto {
 		this.thumbnail = thumbnail;
 	}
 	
-	
+	public Exhibition toEntity() {
+		return Exhibition.builder()
+				.title(title)
+				.subTitle(subTitle)
+				.discription(discription)
+				.author(author)
+				.category(category)
+				.place(place)
+				.url(url)
+				.onOff(onOff)
+				.thumbnail(thumbnail)
+				.build();
+	}
 }

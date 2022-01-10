@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import groovy.transform.builder.Builder;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -35,6 +35,7 @@ public class Exhibition {
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
 			String category, String place, String url, boolean onOff, String thumbnail) {
+		super();
 		this.exhibitionIdx = exhibitionIdx;
 		this.title = title;
 		this.subTitle = subTitle;
@@ -47,9 +48,9 @@ public class Exhibition {
 		this.thumbnail = thumbnail;
 	}
 
-	public void update(Long exhibitionIdx, String title, String subTitle, String discription, String author,
+	@Builder
+	public void update(String title, String subTitle, String discription, String author,
 			String category, String place, String url, boolean onOff, String thumbnail) {
-		this.exhibitionIdx = exhibitionIdx;
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -60,6 +61,8 @@ public class Exhibition {
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
 	}
+
+
 
 	
 }

@@ -39,7 +39,7 @@ public class RestNoticeController {
 //	공지사항 등록
 	@PostMapping("/notice")
 	public Long registerNotice(@RequestBody NoticeSaveRequestDto dto) {
-		return noticeService.registNotice(dto);
+		return noticeService.registerNotice(dto);
 	}
 
 //	공지사항 수정

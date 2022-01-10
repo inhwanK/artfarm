@@ -1,5 +1,7 @@
 package org.hustar.artfarm.dto.exhibition;
 
+import org.hustar.artfarm.domain.exhibition.Exhibition;
+
 import groovy.transform.builder.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,20 +26,18 @@ public class ExhibitionResponseDto {
 //	수정 가능성 많음
 	private String thumbnail;
 
-	@Builder
-	public ExhibitionResponseDto(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail) {
+	public ExhibitionResponseDto(Exhibition entity) {
 		super();
-		this.exhibitionIdx = exhibitionIdx;
-		this.title = title;
-		this.subTitle = subTitle;
-		this.discription = discription;
-		this.author = author;
-		this.category = category;
-		this.place = place;
-		this.url = url;
-		this.onOff = onOff;
-		this.thumbnail = thumbnail;
+		this.exhibitionIdx = entity.getExhibitionIdx();
+		this.title = entity.getTitle();
+		this.subTitle = entity.getSubTitle();
+		this.discription = entity.getDiscription();
+		this.author = entity.getAuthor();
+		this.category = entity.getCategory();
+		this.place = entity.getPlace();
+		this.url = entity.getUrl();
+		this.onOff = entity.isOnOff();
+		this.thumbnail = entity.getThumbnail();
 	}
 	
 	

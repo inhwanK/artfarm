@@ -14,6 +14,8 @@ public class NoticeUpdateRequestDto {
 
 	private String title;
 	private String content;
+	
+//	update 날짜 갱신.
 	private Date updateDate;
 
 	@Builder
