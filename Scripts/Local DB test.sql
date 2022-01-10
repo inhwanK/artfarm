@@ -2,3 +2,5 @@
 use artfarm;
 
 show variables like 'c%';
+
+select * from notice;
