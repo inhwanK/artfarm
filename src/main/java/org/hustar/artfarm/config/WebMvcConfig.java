@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
 //api 요청 권한 체크를 위한 어노테이션
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
 public class WebMvcConfig extends WebSecurityConfigurerAdapter {
@@ -22,16 +22,17 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 	private final long MAX_AGE_SECS = 3600;
 	
 	@Value("${inpyo.ip}")
-	private final String frontIp;
+	private String frontIp;
 	
 	@Value("${inhwan.ip}")
-	private final String testIp;
+	private String testIp;
 	
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {		
 		CorsConfiguration configuration = new CorsConfiguration();
 
+		System.out.println("testIp > " +testIp);
 		configuration.addAllowedOrigin(testIp);
 		configuration.addAllowedOrigin(frontIp);
 		
