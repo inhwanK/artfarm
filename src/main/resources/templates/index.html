@@ -2,6 +2,22 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$.ajax({
+			url: "ec2-13-124-134-65.ap-northeast-2.compute.amazonaws.com:8080/api/notice",
+			type: "options",
+            contextType: "apllication/json; charset=utf-8",
+            dataType: "json", //로드된 데이터의 형태, 문자열은 string
+            success: function(json){
+            	console.log(json);
+            }
+		})
+	});
+
+</script>
 <title>Insert title here</title>
 </head>
 <body>
