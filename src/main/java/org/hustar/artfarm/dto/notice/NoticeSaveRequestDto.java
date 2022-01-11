@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.hustar.artfarm.domain.notice.Notice;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +19,8 @@ public class NoticeSaveRequestDto {
 	private String title;
 	private String content;
 	private String writer;
+	
+	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul") 
 	private Date registDate;
 
 	@Builder

@@ -4,6 +4,7 @@ package org.hustar.artfarm.dto.notice;
 import java.util.Date;
 
 import org.hustar.artfarm.domain.notice.Notice;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,11 @@ public class NoticeResponseDto {
 	private String content;
 	private String writer;
 	private Long views;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date registDate;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updateDate;
 
 	public NoticeResponseDto(Notice entity) {
