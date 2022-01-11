@@ -1,6 +1,5 @@
 package org.hustar.artfarm.domain.notice;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
