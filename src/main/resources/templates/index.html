@@ -7,12 +7,13 @@
 	$(function(){
 		
 		$.ajax({
-			url: "http://ec2-13-124-134-65.ap-northeast-2.compute.amazonaws.com:8080/api/notice",
+			url: "http://ec2-13-124-134-65.ap-northeast-2.compute.amazonaws.com:8080",
 			type: "get",
             contextType: "apllication/json; charset=utf-8",
             dataType: "json", //로드된 데이터의 형태, 문자열은 string
             success: function(json){
             	console.log(json);
+            	console.log("aws 서버 통신 됨.");
             }
 		})
 	});
