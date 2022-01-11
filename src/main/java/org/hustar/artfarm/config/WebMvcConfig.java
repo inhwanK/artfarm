@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
 // 임포트 패키지 주의.
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
@@ -29,12 +28,11 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 	private final String testIp;
 	
 	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-
+	protected void configure(HttpSecurity http) throws Exception {		
 		CorsConfiguration configuration = new CorsConfiguration();
 
-		configuration.addAllowedOrigin(frontIp);
 		configuration.addAllowedOrigin(testIp);
+		configuration.addAllowedOrigin(frontIp);
 		
 		configuration.addAllowedMethod("GET");
 		configuration.addAllowedMethod("POST");
