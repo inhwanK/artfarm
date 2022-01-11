@@ -16,7 +16,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
 	public void addCorsMappings(CorsRegistry registry) {
 		
 		registry.addMapping("/**")
-				.allowedOrigins("http://ec2-13-124-134-65.ap-northeast-2.compute.amazonaws.com/:8080")
+				.allowedOrigins("http://192.168.0.14:8080")
 				.allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS")
 				.allowedHeaders("*")
 				.allowCredentials(true)
