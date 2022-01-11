@@ -1,6 +1,6 @@
 package org.hustar.artfarm.domain.notice;
 
-
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -29,7 +29,7 @@ public class Notice {
 	private Long views;
 	private Date registDate;
 	private Date updateDate;
-
+	
 	@Builder
 	public Notice(Long noticeIdx, String title, String content, String writer, Long views, Date registDate,
 			Date updateDate) {
