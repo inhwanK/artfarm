@@ -27,6 +27,7 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 	@Value("${inhwan.ip}")
 	private final String testIp;
 	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {		
 		CorsConfiguration configuration = new CorsConfiguration();
