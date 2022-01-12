@@ -1,5 +1,7 @@
 package org.hustar.artfarm.service.impl;
 
+import javax.persistence.EntityManager;
+
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
 import org.hustar.artfarm.domain.notice.Notice;
@@ -12,11 +14,12 @@ import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class ExhibitionServiceImpl implements ExhibitionService {
 
 	private final ExhibitionRepository exhibitionRepository;
+	private final EntityManager em;
 	
 	@Override
 	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable) {
@@ -28,8 +31,12 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 
 	@Override
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx) {
+		
+//		Exhibition entity = em.find(Exhibition.class, exhibitionIdx);
+		
 		Exhibition entity = exhibitionRepository.findById(exhibitionIdx)
 				.orElseThrow(() -> new IllegalArgumentException("해당 전시회 정보가 없습니다. id="+ exhibitionIdx));
+
 		return new ExhibitionResponseDto(entity);
 	}
 
@@ -54,6 +61,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 			.url(dto.getUrl())
 			.onOff(dto.isOnOff())
 			.thumbnail(dto.getThumbnail());
+		
 		return exhibitionIdx;
 	}
 
