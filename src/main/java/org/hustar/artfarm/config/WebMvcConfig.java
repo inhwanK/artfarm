@@ -17,13 +17,11 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 @Configuration
 public class WebMvcConfig extends WebSecurityConfigurerAdapter {
-
-	private final long MAX_AGE_SECS = 3600;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {		
 
-
+/*
 		CorsConfiguration configuration = new CorsConfiguration();
 		
 		configuration.addAllowedOrigin("http://localhost:8080");
@@ -41,16 +39,13 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		source.registerCorsConfiguration("/**", configuration);
 
-		
+*/		
 		http
 			.csrf().disable()
 			.headers().frameOptions().disable()
 		.and()
 			.authorizeRequests()
 			.antMatchers().authenticated()
-			.anyRequest().permitAll()
-		.and()
-			.cors().configurationSource(source);
+			.anyRequest().permitAll();
 	}
-	
 	}
