@@ -31,8 +31,9 @@ public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 		CorsConfiguration configuration = new CorsConfiguration();
 
 		System.out.println("testIp > " +testIp);
-		configuration.addAllowedOrigin(testIp);
+		
 		configuration.addAllowedOrigin(frontIp);
+		configuration.addAllowedOrigin(testIp);
 		
 		configuration.addAllowedMethod("GET");
 		configuration.addAllowedMethod("POST");
