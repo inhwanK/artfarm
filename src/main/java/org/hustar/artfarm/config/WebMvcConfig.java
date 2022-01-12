@@ -14,18 +14,16 @@ import lombok.RequiredArgsConstructor;
 //api 요청 권한 체크를 위한 어노테이션
 //@EnableGlobalMethodSecurity(prePostEnabled = true)
 
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 @EnableWebSecurity
 @Configuration
 public class WebMvcConfig extends WebSecurityConfigurerAdapter {
 
 	private final long MAX_AGE_SECS = 3600;
 	
-	@Value("${inpyo.ip}")
-	private String frontIp;
 	
-	@Value("${inhwan.ip}")
-	private String testIp;
+	private final String frontIp = "http://10.1.4.106:8082";
+	private final String testIp = "http://192.168.0.14:8080";
 	
 	
 	@Override
