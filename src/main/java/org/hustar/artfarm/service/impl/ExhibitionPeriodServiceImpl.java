@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 import org.hustar.artfarm.domain.period.ExhibitionPeriodRepository;
 import org.hustar.artfarm.dto.period.ExhibitionPeriodResponseDto;
@@ -25,8 +26,15 @@ public class ExhibitionPeriodServiceImpl implements ExhibitionPeriodService {
 	@Override
 	public List<ExhibitionPeriodResponseDto> getPeriod() {
 
-		ExhibitionPeriod entity = em.find(ExhibitionPeriod.class, 1L);
-		System.out.println("entity > "+ entity.getExhibition().getDiscription());
+		Exhibition entity = em.find(Exhibition.class, 1L);
+		ExhibitionPeriod entity1 = em.find(ExhibitionPeriod.class, 1L);
+		
+		System.out.println("기간으로 전시회 검색.  > "+ entity1.getExhibition().getDiscription());
+		
+		System.out.println("전시회와 함께 기간 검색 > "+ entity.getExhPeriod().get(0).getEndTime());
+		System.out.println("전시회와 함께 기간 검색 > "+ entity.getExhPeriod().get(1).getEndTime());
+		System.out.println("전시회와 함께 기간 검색 > "+ entity.getExhPeriod().get(2).getEndTime());
+		
 		return null;
 		
 	}
