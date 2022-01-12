@@ -1,10 +1,16 @@
 package org.hustar.artfarm.domain.exhibition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -31,6 +37,9 @@ public class Exhibition {
 	
 //	수정 가능성 많음
 	private String thumbnail;
+	
+	@OneToMany(mappedBy = "exhibition")
+	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
@@ -62,8 +71,5 @@ public class Exhibition {
 		this.thumbnail = thumbnail;
 	}
 
-
-
-	
 }
 
