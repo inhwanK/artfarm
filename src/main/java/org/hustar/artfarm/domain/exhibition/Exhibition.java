@@ -62,8 +62,5 @@ public class Exhibition {
 		this.thumbnail = thumbnail;
 	}
 
-
-
-	
 }
 
