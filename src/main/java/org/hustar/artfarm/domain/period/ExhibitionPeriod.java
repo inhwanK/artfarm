@@ -2,7 +2,6 @@ package org.hustar.artfarm.domain.period;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

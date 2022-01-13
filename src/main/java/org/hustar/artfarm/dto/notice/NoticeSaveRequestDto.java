@@ -1,6 +1,6 @@
 package org.hustar.artfarm.dto.notice;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.hustar.artfarm.domain.notice.Notice;
 
@@ -19,17 +19,13 @@ public class NoticeSaveRequestDto {
 	private String title;
 	private String content;
 	private String writer;
-	
-	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul") 
-	private Date registDate;
 
 	@Builder
-	public NoticeSaveRequestDto(String title, String content, String writer, Date registDate) {
+	public NoticeSaveRequestDto(String title, String content, String writer) {
 		super();
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
-		this.registDate = registDate;
 	}
 
 	public Notice toEntity() {
@@ -37,7 +33,6 @@ public class NoticeSaveRequestDto {
 				.title(title)
 				.content(content)
 				.writer(writer)
-				.registDate(registDate)
 				.build();
 	}
 }

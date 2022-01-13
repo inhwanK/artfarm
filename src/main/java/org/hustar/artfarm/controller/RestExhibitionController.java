@@ -7,6 +7,7 @@ import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.hustar.artfarm.service.ExhibitionService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -30,7 +31,7 @@ public class RestExhibitionController {
 
 //	전시회 목록 뽑기, 페이징 처리 되어 있음.
 	@GetMapping("/exhibitionlist")
-	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable) {
+	public Page<ExhibitionResponseDto> getExhibitionList(@PageableDefault(size = 15) Pageable pageable) {
 		return exhibitionService.getExhibitionList(pageable);
 	}
 
@@ -41,7 +42,8 @@ public class RestExhibitionController {
 
 	@GetMapping("/exhibition/period")
 	public Page<ExhibitionResponseDto> getExhibitionListByPeriod(
-			@RequestParam("date") @DateTimeFormat(iso = ISO.DATE) LocalDate date, Pageable pageable) {
+			@RequestParam("date") @DateTimeFormat(iso = ISO.DATE) LocalDate date,
+			@PageableDefault(size = 15) Pageable pageable) {
 
 		return exhibitionService.getExhibitionListByDate(date, pageable);
 	}

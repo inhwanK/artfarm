@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
-import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
-import org.springframework.data.relational.repository.query.DtoInstantiatingConverter;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -6,6 +6,7 @@ import org.hustar.artfarm.dto.notice.NoticeUpdateRequestDto;
 import org.hustar.artfarm.service.NoticeService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ public class RestNoticeController {
 
 //	공지사항 목록 뽑기, 페이징 처리 되어 있음. 
 	@GetMapping("/noticelist")
-	public Page<NoticeResponseDto> getNoticeList(Pageable pageable) {
+	public Page<NoticeResponseDto> getNoticeList(@PageableDefault(size = 10) Pageable pageable) {
 		return noticeService.getNoticeList(pageable);
 	}
 

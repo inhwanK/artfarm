@@ -22,9 +22,9 @@ CREATE TABLE `artfarm`.`notice` (
 	`title`       VARCHAR(256)     NULL     COMMENT '공지제목', -- 공지제목
 	`content`     VARCHAR(9999)    NULL     COMMENT '공지내용', -- 공지내용
 	`writer`      VARCHAR(30)      NULL     COMMENT '작성자', -- 작성자
-	`views`       INT(11)          NULL     COMMENT '조회수', -- 조회수
-	`regist_date` DATETIME         NULL     COMMENT '작성일', -- 작성일
-	`update_date` DATETIME         NULL     COMMENT '수정일' -- 수정일
+	`views`       INT(11)          NULL DEFAULT 0     COMMENT '조회수', -- 조회수
+	`regist_date` DATETIME         NULL DEFAULT now() COMMENT '작성일', -- 작성일
+	`update_date` DATETIME         NULL DEFAULT now() COMMENT '수정일' -- 수정일
 )
 COMMENT '공지사항';
 

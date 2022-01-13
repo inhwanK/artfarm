@@ -1,12 +1,16 @@
 package org.hustar.artfarm.domain.notice;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CollectionId;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -26,12 +30,12 @@ public class Notice {
 	private String content;
 	private String writer;
 	private Long views;
-	private Date registDate;
-	private Date updateDate;
+	private LocalDateTime registDate;
+	private LocalDateTime updateDate;
 	
 	@Builder
-	public Notice(Long noticeIdx, String title, String content, String writer, Long views, Date registDate,
-			Date updateDate) {
+	public Notice(Long noticeIdx, String title, String content, String writer, Long views, LocalDateTime registDate,
+			LocalDateTime updateDate) {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
@@ -40,7 +44,7 @@ public class Notice {
 		this.updateDate = updateDate;
 	}
 
-	public void update(String title, String content, Date updateDate) {
+	public void update(String title, String content, LocalDateTime updateDate) {
 		this.title = title;
 		this.content = content;
 		this.updateDate = updateDate;
