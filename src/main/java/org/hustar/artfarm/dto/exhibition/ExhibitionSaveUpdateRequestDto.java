@@ -1,6 +1,10 @@
 package org.hustar.artfarm.dto.exhibition;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -21,6 +25,9 @@ public class ExhibitionSaveUpdateRequestDto {
 	private String url;
 	private boolean onOff;
 	private String thumbnail;
+	
+//	전시회 기간 배열 형태로 파라미터 전달해야함.
+	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 	
 	@Builder
 	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, String category,
@@ -48,6 +55,7 @@ public class ExhibitionSaveUpdateRequestDto {
 				.url(url)
 				.onOff(onOff)
 				.thumbnail(thumbnail)
+				.exhPeriod(exhPeriod)
 				.build();
 	}
 }

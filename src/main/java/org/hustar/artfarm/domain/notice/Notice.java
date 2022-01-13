@@ -32,8 +32,6 @@ public class Notice {
 	@Builder
 	public Notice(Long noticeIdx, String title, String content, String writer, Long views, Date registDate,
 			Date updateDate) {
-		super();
-		this.noticeIdx = noticeIdx;
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
