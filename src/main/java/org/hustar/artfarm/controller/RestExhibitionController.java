@@ -39,7 +39,7 @@ public class RestExhibitionController {
 		return exhibitionService.getExhibition(exhibitionIdx);
 	}
 
-	@GetMapping("/period")
+	@GetMapping("/exhibition/period")
 	public Page<ExhibitionResponseDto> getExhibitionListByPeriod(
 			@RequestParam("date") @DateTimeFormat(iso = ISO.DATE) LocalDate date, Pageable pageable) {
 
