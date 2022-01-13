@@ -23,7 +23,7 @@ public class NoticeServieImpl implements NoticeService {
 	@Transactional
 	@Override
 	public Page<NoticeResponseDto> getNoticeList(Pageable pageable) {
-		Page<NoticeResponseDto> noticeList =
+		Page<NoticeResponseDto> noticeList = 
 				noticeRepository.findAllByOrderByNoticeIdxDesc(pageable).map(entity -> new NoticeResponseDto(entity));
 		return noticeList;
 	}
