@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Builder;
@@ -48,9 +47,7 @@ public class Exhibition {
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail) {
-		super();
-		this.exhibitionIdx = exhibitionIdx;
+			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriod> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -60,11 +57,12 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		this.exhPeriod = exhPeriod;
 	}
 
 	@Builder
 	public void update(String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail) {
+			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriod> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -74,6 +72,7 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		this.exhPeriod = exhPeriod;
 	}
 
 }
