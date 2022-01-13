@@ -3,6 +3,8 @@ package org.hustar.artfarm.controller;
 import java.util.List;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
+import org.hustar.artfarm.dto.period.ExhibitionPeriodResponseDto;
 import org.hustar.artfarm.service.ExhibitionPeriodService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,10 +20,10 @@ public class RestExhibitionPeriodController {
 	private final ExhibitionPeriodService exhibitionPeriodService;
 	
 	@GetMapping("/period")
-	public String getPeriod(){
+	public List<ExhibitionResponseDto> getPeriod(){
 
-		exhibitionPeriodService.getPeriod();
+//		exhibitionPeriodService.getPeriod();
 		
-		return "되었느냐?";
+		return exhibitionPeriodService.getPeriod();
 	}
 }

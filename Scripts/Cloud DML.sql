@@ -1,6 +1,7 @@
 select * from notice;
 select * from exhibition;
 select * from exhibition_period;
+select DISTINCT exhibition_idx from exhibition_period;
 
 insert into notice(title, content, writer, views, regist_date) values('첫번째 공지사항','공지사항 테스트를 위한 글입니다.','김인환',0,now()); 
 
@@ -10,3 +11,11 @@ insert into exhibition(title, sub_title,discription,author,category,place,url,on
 					
 insert into exhibition_period(exhibition_idx, `date`, start_time, end_time)
 						values(3,now(),now(),date_add(now(), interval 5 hour));
+						
+select e.exhibition_idx, e.title ,e.sub_title ,e.author 
+  from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx
+group by ep.exhibition_idx;
+  
+select e.title ,e.sub_title
+  from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx;
+  
