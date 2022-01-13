@@ -80,7 +80,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + exhibitionIdx));
 
 		exhibition.update(dto.getTitle(), dto.getSubTitle(), dto.getDiscription(), dto.getAuthor(), dto.getCategory(),
-				dto.getPlace(), dto.getUrl(), dto.isOnOff(), dto.getThumbnail());
+				dto.getPlace(), dto.getUrl(), dto.isOnOff(), dto.getThumbnail(),dto.getExhPeriod());
 		return exhibitionIdx;
 	}
 
