@@ -42,14 +42,14 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 //		LocalDateTime date1 = LocalDateTime.of(2022, 1, 12, 0, 0);
 
 		List<ExhibitionPeriod> exhList = exhPeriodRepository.findExhibitionByDate(date);
-		Set<ExhibitionResponseDto> exhSet = new HashSet<ExhibitionResponseDto>();
+		Set<Exhibition> exhSet = new HashSet<Exhibition>();
 
 //		중복 처리 후, getExhibition responsDto로 변환.
-		exhList.forEach(entity -> exhSet.add(new ExhibitionResponseDto(entity.getExhibition())));
-
+		exhList.forEach(entity -> exhSet.add(entity.getExhibition()));
+		exhSet.forEach(entity -> new ExhibitionResponseDto(entity));
 
 		List<ExhibitionResponseDto> responseList = new ArrayList<ExhibitionResponseDto>();
-		exhSet.forEach(response -> responseList.add(response));
+		exhSet.forEach(response -> responseList.add(new ExhibitionResponseDto(response)));
 
 //		List 를 Page로 바꾸기.
 		int start = (int) pageable.getOffset();
