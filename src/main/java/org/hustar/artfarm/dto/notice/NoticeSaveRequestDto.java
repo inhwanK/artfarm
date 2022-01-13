@@ -1,10 +1,6 @@
 package org.hustar.artfarm.dto.notice;
 
-import java.time.LocalDateTime;
-
 import org.hustar.artfarm.domain.notice.Notice;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.Builder;
 import lombok.Getter;
