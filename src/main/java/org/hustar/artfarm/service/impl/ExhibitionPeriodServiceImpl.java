@@ -24,5 +24,4 @@ public class ExhibitionPeriodServiceImpl implements ExhibitionPeriodService {
 		return null;
 	}
 
-	
 }

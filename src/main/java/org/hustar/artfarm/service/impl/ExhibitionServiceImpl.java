@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.transaction.Transactional;
+
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
@@ -27,6 +29,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	private final ExhibitionRepository exhibitionRepository;
 	private final ExhibitionPeriodRepository exhPeriodRepository;
 
+	@Transactional
 	@Override
 	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable) {
 		Page<ExhibitionResponseDto> exhibitionList = exhibitionRepository.findAllByOrderByExhibitionIdxDesc(pageable)
@@ -35,11 +38,9 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 		return exhibitionList;
 	}
 
+	@Transactional
 	@Override
 	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable) {
-
-
-//		LocalDateTime date1 = LocalDateTime.of(2022, 1, 12, 0, 0);
 
 		List<ExhibitionPeriod> exhList = exhPeriodRepository.findExhibitionByDate(date);
 		Set<Exhibition> exhSet = new HashSet<Exhibition>();
@@ -60,6 +61,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 		return page;
 	}
 
+	@Transactional
 	@Override
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx) {
 		Exhibition entity = exhibitionRepository.findById(exhibitionIdx)
@@ -68,12 +70,22 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 		return new ExhibitionResponseDto(entity);
 	}
 
+	@Transactional
 	@Override
 	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto) {
 
-		return exhibitionRepository.save(dto.toEntity()).getExhibitionIdx();
+		Exhibition newExh = exhibitionRepository.save(dto.toEntity());
+		
+		dto.getExhPeriod().forEach(saveDto -> {
+		
+			saveDto.setExhibition(newExh);
+			exhPeriodRepository.save(saveDto.toEntity());
+		});
+		
+		return newExh.getExhibitionIdx();
 	}
 
+	@Transactional
 	@Override
 	public Long updateExhibition(Long exhibitionIdx, ExhibitionSaveUpdateRequestDto dto) {
 		Exhibition exhibition = exhibitionRepository.findById(exhibitionIdx)
@@ -84,6 +96,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 		return exhibitionIdx;
 	}
 
+	@Transactional
 	@Override
 	public Long deleteExhibition(Long exhibitionIdx) {
 		exhibitionRepository.deleteById(exhibitionIdx);

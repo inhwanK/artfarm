@@ -1,6 +1,6 @@
 package org.hustar.artfarm.dto.notice;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -16,10 +16,10 @@ public class NoticeUpdateRequestDto {
 	private String content;
 	
 //	update 날짜 갱신.
-	private Date updateDate;
+	private LocalDateTime updateDate;
 
 	@Builder
-	public NoticeUpdateRequestDto(String title, String content, Date updateDate) {
+	public NoticeUpdateRequestDto(String title, String content, LocalDateTime updateDate) {
 		super();
 		this.title = title;
 		this.content = content;
