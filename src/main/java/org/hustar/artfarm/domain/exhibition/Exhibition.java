@@ -12,6 +12,9 @@ import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -38,7 +41,9 @@ public class Exhibition {
 //	수정 가능성 많음
 	private String thumbnail;
 	
-	@OneToMany(mappedBy = "exhibition")
+//	조인 무한루프 좀 더 공부해야함.
+//	@JsonIgnoreProperties("exhibition")
+	@OneToMany(mappedBy = "exhibition") @JsonManagedReference
 	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	@Builder

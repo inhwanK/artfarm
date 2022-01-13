@@ -21,7 +21,7 @@ public class ExhibitionPeriodServiceImpl implements ExhibitionPeriodService {
 	
 //	spring boot 에서는 application이 실행 될 때
 //	EntityManager를 자동으로 bean 등록함.
-	private final EntityManager em;
+	private final EntityManager em; // 필요없을 수도 있음.
 	
 	@Override
 	public List<ExhibitionPeriodResponseDto> getPeriod() {

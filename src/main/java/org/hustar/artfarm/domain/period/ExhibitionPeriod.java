@@ -13,6 +13,9 @@ import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,8 +30,11 @@ public class ExhibitionPeriod {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long periodIdx;
 	
-	@ManyToOne
-	@JoinColumn(name = "exhibition_idx")
+	
+//	join 무한 루프 좀 더 제대로 공부할 필요 있음.
+//	@JsonIgnoreProperties("exhibition") 
+	@JsonBackReference
+	@ManyToOne @JoinColumn(name = "exhibition_idx")
 	private Exhibition exhibition;
 	
 	private Date date;

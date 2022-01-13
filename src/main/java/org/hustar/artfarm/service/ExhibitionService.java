@@ -1,5 +1,7 @@
 package org.hustar.artfarm.service;
 
+import java.sql.Date;
+
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.springframework.data.domain.Page;
@@ -8,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 public interface ExhibitionService {
 	
 	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable);
+	
+	public Page<ExhibitionResponseDto> getExhibitionListByDate(Pageable pageable, Date date);
 	
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 	

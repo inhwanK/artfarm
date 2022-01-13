@@ -17,20 +17,18 @@ public class ExhibitionPeriodResponseDto {
 
 	private Long periodIdx;
 	private Exhibition exhibition;
-	
+
 	private Date date;
 	private Timestamp startTime;
 	private Timestamp endTime;
-	
-	/*
+
 	public ExhibitionPeriodResponseDto(ExhibitionPeriod entity) {
 
 		this.periodIdx = entity.getPeriodIdx();
-		this.exhibition = exhibition;
-		this.date = date;
-		this.startTime = startTime;
-		this.endTime = endTime;
-	}*/
-	
-	
+		this.exhibition = entity.getExhibition();
+		this.date = entity.getDate();
+		this.startTime = entity.getStartTime();
+		this.endTime = entity.getEndTime();
+	}
+
 }
