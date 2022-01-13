@@ -38,9 +38,6 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	@Override
 	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable) {
 
-
-//		LocalDateTime date1 = LocalDateTime.of(2022, 1, 12, 0, 0);
-
 		List<ExhibitionPeriod> exhList = exhPeriodRepository.findExhibitionByDate(date);
 		Set<Exhibition> exhSet = new HashSet<Exhibition>();
 
@@ -71,7 +68,15 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	@Override
 	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto) {
 
-		return exhibitionRepository.save(dto.toEntity()).getExhibitionIdx();
+		Exhibition newExh = exhibitionRepository.save(dto.toEntity());
+		
+		dto.getExhPeriod().forEach(saveDto -> {
+		
+			saveDto.setExhibition(newExh);
+			exhPeriodRepository.save(saveDto.toEntity());
+		});
+		
+		return newExh.getExhibitionIdx();
 	}
 
 	@Override

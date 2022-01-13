@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
+import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
+import org.springframework.data.relational.repository.query.DtoInstantiatingConverter;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -27,11 +29,11 @@ public class ExhibitionSaveUpdateRequestDto {
 	private String thumbnail;
 	
 //	전시회 기간 배열 형태로 파라미터 전달해야함.
-	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
+	private List<ExhibitionPeriodSaveRequestDto> exhPeriod = new ArrayList<ExhibitionPeriodSaveRequestDto>();
 	
-	@Builder
+//	@Builder
 	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, String category,
-			String place, String url, boolean onOff, String thumbnail) {
+			String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		super();
 		this.title = title;
 		this.subTitle = subTitle;
@@ -42,6 +44,7 @@ public class ExhibitionSaveUpdateRequestDto {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto));
 	}
 	
 	public Exhibition toEntity() {

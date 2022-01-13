@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
+import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -47,7 +48,7 @@ public class Exhibition {
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriod> exhPeriod) {
+			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -57,12 +58,11 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
-		this.exhPeriod = exhPeriod;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto.toEntity()));
 	}
 
-	@Builder
 	public void update(String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriod> exhPeriod) {
+			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -72,7 +72,7 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
-		this.exhPeriod = exhPeriod;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto.toEntity()));
 	}
 
 }
