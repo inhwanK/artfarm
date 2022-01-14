@@ -22,4 +22,4 @@ select e.title ,e.sub_title
   
 delete from exhibition_period where period_idx = 15;
 
-delete from notice where notice_idx = 19;
+delete from notice where notice_idx = 5;
