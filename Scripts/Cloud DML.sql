@@ -29,3 +29,7 @@ delete from notice where notice_idx = 8;
 
 select now();
 show global variables like '%zone%';
+
+select *
+  from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx
+ where date(ep.`date`) = date(NOW()) and e.category = '시각';

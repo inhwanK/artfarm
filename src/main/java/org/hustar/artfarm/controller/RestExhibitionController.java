@@ -47,6 +47,13 @@ public class RestExhibitionController {
 
 		return exhibitionService.getExhibitionListByDate(date, pageable);
 	}
+	
+	@GetMapping("/exhibtion/category")
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category,Pageable pageable) {
+
+		
+		return exhibitionService.getExhibitionListByCategoryAndDate(category, pageable);
+	}
 
 	@PostMapping("/exhibition")
 	public Long registerExhibition(@RequestBody ExhibitionSaveUpdateRequestDto dto) {

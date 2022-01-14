@@ -62,4 +62,5 @@ public class NoticeServieImpl implements NoticeService {
 		return noticeIdx;
 	}
 
+	
 }
