@@ -10,8 +10,4 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface NoticeRepository extends JpaRepository<Notice, Long>{
 	
 	Page<Notice> findAllByOrderByNoticeIdxDesc(Pageable pageable);
-	
-//	@Modifying
-//    @Query("update Notice n set n.views = n.views + 1 where n.notice_idx = :noticeIdx")
-//    Long updateViews(@Param("noticeIdx") Long noticeIdx);
 }
