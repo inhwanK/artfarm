@@ -34,7 +34,7 @@ public class NoticeServieImpl implements NoticeService {
 		Notice entity = noticeRepository.findById(noticeIdx)
 				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + noticeIdx));
 		
-		entity.updateViews();
+		entity.increaseViews();
 		
 		return new NoticeResponseDto(entity);
 	}
