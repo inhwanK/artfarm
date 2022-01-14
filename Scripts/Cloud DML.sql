@@ -22,4 +22,10 @@ select e.title ,e.sub_title
   
 delete from exhibition_period where period_idx = 15;
 
-delete from notice where notice_idx = 5;
+delete from notice where notice_idx = 8;
+
+-- update notice
+--   set title ="김인표의 화려한 공지사항", content =""
+
+select now();
+show global variables like '%zone%';

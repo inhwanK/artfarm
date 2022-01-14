@@ -19,12 +19,12 @@ DROP TABLE IF EXISTS `artfarm`.`exhibition_data` RESTRICT;
 -- 공지사항
 CREATE TABLE `artfarm`.`notice` (
 	`notice_idx`  INT(11) UNSIGNED NOT NULL COMMENT '공지사항번호', -- 공지사항번호
-	`title`       VARCHAR(256)     NULL     COMMENT '공지제목', -- 공지제목
-	`content`     VARCHAR(9999)    NULL     COMMENT '공지내용', -- 공지내용
-	`writer`      VARCHAR(30)      NULL     COMMENT '작성자', -- 작성자
-	`views`       INT(11)          NULL DEFAULT 0     COMMENT '조회수', -- 조회수
-	`regist_date` DATETIME         NULL DEFAULT now() COMMENT '작성일', -- 작성일
-	`update_date` DATETIME         NULL DEFAULT now() COMMENT '수정일' -- 수정일
+	`title`       VARCHAR(256)     NOT NULL COMMENT '공지제목', -- 공지제목
+	`content`     VARCHAR(9999)    NOT NULL COMMENT '공지내용', -- 공지내용
+	`writer`      VARCHAR(30)      NOT NULL DEFAULT '관리자' COMMENT '작성자', -- 작성자
+	`views`       INT(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
+	`regist_date` DATETIME         NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+	`update_date` DATETIME         NOT NULL DEFAULT now() COMMENT '수정일' -- 수정일
 )
 COMMENT '공지사항';
 
