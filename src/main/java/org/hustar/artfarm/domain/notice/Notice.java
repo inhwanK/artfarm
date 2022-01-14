@@ -45,9 +45,13 @@ public class Notice {
 		this.updateDate = updateDate;
 	}
 
-	public void update(String title, String content, LocalDateTime updateDate) {
+	public void update(String title, String content) {
 		this.title = title;
 		this.content = content;
-		this.updateDate = updateDate;
+		this.updateDate = LocalDateTime.now();
+	}
+
+	public void updateViews() {
+		this.views += 1;
 	}
 }
