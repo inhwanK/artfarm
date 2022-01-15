@@ -3,7 +3,10 @@ package org.hustar.artfarm.domain.exhibition;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +36,11 @@ public class Exhibition {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private String category;
+	
+	
+	@Enumerated(EnumType.STRING)
+	private Category category;
+	
 	private String place;
 	private String url;
 	private boolean onOff;
@@ -48,7 +55,7 @@ public class Exhibition {
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
+			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -62,7 +69,7 @@ public class Exhibition {
 	}
 
 	public void update(String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
+			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;

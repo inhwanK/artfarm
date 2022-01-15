@@ -51,7 +51,7 @@ public class Notice {
 		this.updateDate = LocalDateTime.now();
 	}
 
-	public void updateViews() {
+	public void increaseViews() {
 		this.views += 1;
 	}
 }

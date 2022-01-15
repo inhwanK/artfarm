@@ -1,6 +1,6 @@
 package org.hustar.artfarm.dto.period;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.time.LocalDate;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
@@ -18,17 +18,17 @@ public class ExhibitionPeriodSaveRequestDto {
 	
 	private Exhibition exhibition;
 	
-//	private Long exhibitionIdx;
+	private Long exhibitionIdx;
 	private LocalDate date;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	private Time startTime;
+	private Time endTime;
 	
 	@Builder
-	public ExhibitionPeriodSaveRequestDto(Exhibition exhibition,Long exhibitionIdx, LocalDate date, Timestamp startTime,
-			Timestamp endTime) {
+	public ExhibitionPeriodSaveRequestDto(Exhibition exhibition,Long exhibitionIdx, LocalDate date, Time startTime,
+			Time endTime) {
 		super();
 		this.exhibition = exhibition;
-//		this.exhibitionIdx = exhibitionIdx;
+		this.exhibitionIdx = exhibitionIdx;
 		this.date = date;
 		this.startTime = startTime;
 		this.endTime = endTime;

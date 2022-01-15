@@ -1,6 +1,6 @@
 package org.hustar.artfarm.domain.period;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -37,11 +37,13 @@ public class ExhibitionPeriod {
 	private Exhibition exhibition;
 	
 	private LocalDate date;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	
+//	private Time
+	private Time startTime;
+	private Time endTime;
 	
 	@Builder
-	public ExhibitionPeriod(Long periodIdx, Exhibition exhibition, LocalDate date, Timestamp startTime, Timestamp endTime) {
+	public ExhibitionPeriod(Long periodIdx, Exhibition exhibition, LocalDate date, Time startTime, Time endTime) {
 		super();
 		this.periodIdx = periodIdx;
 		this.exhibition= exhibition;
@@ -50,7 +52,7 @@ public class ExhibitionPeriod {
 		this.endTime = endTime;
 	}
 	
-	public void update(LocalDate date, Timestamp startTime,Timestamp endTime) {
+	public void update(LocalDate date, Time startTime,Time endTime) {
 		this.date = date;
 		this.startTime = startTime;
 		this.endTime = endTime;
