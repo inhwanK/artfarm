@@ -3,6 +3,7 @@ package org.hustar.artfarm.dto.exhibition;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
@@ -21,7 +22,7 @@ public class ExhibitionResponseDto {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private String category;
+	private Category category;
 	private String place;
 	private String url;
 	private boolean onOff;

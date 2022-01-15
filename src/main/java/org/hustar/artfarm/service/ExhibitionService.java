@@ -13,6 +13,8 @@ public interface ExhibitionService {
 
 	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable);
 
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category, Pageable pageable);
+	
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 
 	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto);
