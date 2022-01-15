@@ -66,10 +66,10 @@ ALTER TABLE `artfarm`.`exhibition`
 -- 전시기간
 CREATE TABLE `artfarm`.`exhibition_period` (
 	`period_idx`     BIGINT(22) UNSIGNED NOT NULL COMMENT '전시기간번호', -- 전시기간번호
-	`exhibition_idx` BIGINT(20) UNSIGNED NULL     COMMENT '전시회번호', -- 전시회번호
-	`date`           DATE                NULL     COMMENT '전시일', -- 전시일
-	`start_time`     TIMESTAMP           NULL     COMMENT '시작시간', -- 시작시간
-	`end_time`       TIMESTAMP           NULL     COMMENT '종료시간' -- 종료시간
+	`exhibition_idx` BIGINT(20) UNSIGNED NOT NULL COMMENT '전시회번호', -- 전시회번호
+	`date`           DATE                NOT NULL COMMENT '전시일', -- 전시일
+	`start_time`     TIME                NULL     COMMENT '시작시간', -- 시작시간
+	`end_time`       TIME                NULL     COMMENT '종료시간' -- 종료시간
 )
 COMMENT '전시기간';
 
@@ -110,7 +110,9 @@ ALTER TABLE `artfarm`.`exhibition_period`
 		)
 		REFERENCES `artfarm`.`exhibition` ( -- 전시회
 			`exhibition_idx` -- 전시회번호
-		);
+		)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE;
 
 -- 전시자료
 ALTER TABLE `artfarm`.`exhibition_data`

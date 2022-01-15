@@ -1,6 +1,6 @@
 package org.hustar.artfarm.dto.period;
 
-import java.sql.Timestamp;
+import java.sql.Time;
 import java.time.LocalDate;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
@@ -19,8 +19,8 @@ public class ExhibitionPeriodResponseDto {
 	private Exhibition exhibition;
 
 	private LocalDate date;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	private Time startTime;
+	private Time endTime;
 
 	public ExhibitionPeriodResponseDto(ExhibitionPeriod entity) {
 
