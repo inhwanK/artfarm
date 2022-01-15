@@ -63,10 +63,9 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	
 	@Transactional
 	@Override
-	public Page<ExhibitionResponseDto> getExhibitionListByCategoryAndDate(String category, Pageable pageable) {
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category, Pageable pageable) {
 		Page<ExhibitionResponseDto> exhibitionList = 
-				exhibitionRepository.findAllByCategoryOrderByExhibitionIdx(category, pageable)
-				.map(entity -> new ExhibitionResponseDto(entity));
+				exhibitionRepository.findAllByCategory(category, pageable).map(entity -> new ExhibitionResponseDto(entity));
 		
 		exhibitionList.forEach(response -> System.out.println(response.getDiscription()));
 		

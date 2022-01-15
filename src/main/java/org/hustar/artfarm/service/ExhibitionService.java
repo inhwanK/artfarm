@@ -13,7 +13,7 @@ public interface ExhibitionService {
 
 	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable);
 
-	public Page<ExhibitionResponseDto> getExhibitionListByCategoryAndDate(String category, Pageable pageable);
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category, Pageable pageable);
 	
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 

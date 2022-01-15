@@ -37,6 +37,8 @@ public class ExhibitionPeriod {
 	private Exhibition exhibition;
 	
 	private LocalDate date;
+	
+//	private Time
 	private Timestamp startTime;
 	private Timestamp endTime;
 	

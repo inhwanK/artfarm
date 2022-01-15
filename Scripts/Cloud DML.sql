@@ -11,7 +11,7 @@ insert into exhibition(title, sub_title,discription,author,category,place,url,on
 					'김인환','테스트','휴스타 강의실','localhost:8080',true,'thumbnail domain');
 					
 insert into exhibition_period(exhibition_idx, `date`, start_time, end_time)
-						values(5,date_add(now(), interval 2 day),now(),date_add(now(), interval 5 hour));
+						values(1,date_add(now(), interval 2 day),now(),date_add(now(), interval 5 hour));
 						
 select e.exhibition_idx, e.title ,e.sub_title ,e.author 
   from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx
