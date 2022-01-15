@@ -37,3 +37,7 @@ select *
 select * from exhibition e join exhibition_period ep on e.exhibition_idx = ep.exhibition_idx;
 
 delete from exhibition_period where period_idx = 4;
+
+update exhibition set discription = '인표는 자신의 눈을 지킬 수 있을 것인가? 아니면 그냥 시각을 쳐 포기할 것인가?' where exhibition_idx =3; 
+
+delete from exhibition where exhibition_idx =5;

@@ -3,6 +3,7 @@ package org.hustar.artfarm.dto.exhibition;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
 
@@ -19,7 +20,7 @@ public class ExhibitionSaveUpdateRequestDto {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private String category;
+	private Category category;
 	private String place;
 	private String url;
 	private boolean onOff;
@@ -29,7 +30,7 @@ public class ExhibitionSaveUpdateRequestDto {
 	private List<ExhibitionPeriodSaveRequestDto> exhPeriod = new ArrayList<ExhibitionPeriodSaveRequestDto>();
 	
 //	@Builder
-	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, String category,
+	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, Category category,
 			String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		super();
 		this.title = title;

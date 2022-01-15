@@ -18,7 +18,7 @@ public class ExhibitionPeriodSaveRequestDto {
 	
 	private Exhibition exhibition;
 	
-//	private Long exhibitionIdx;
+	private Long exhibitionIdx;
 	private LocalDate date;
 	private Time startTime;
 	private Time endTime;
@@ -28,7 +28,7 @@ public class ExhibitionPeriodSaveRequestDto {
 			Time endTime) {
 		super();
 		this.exhibition = exhibition;
-//		this.exhibitionIdx = exhibitionIdx;
+		this.exhibitionIdx = exhibitionIdx;
 		this.date = date;
 		this.startTime = startTime;
 		this.endTime = endTime;
