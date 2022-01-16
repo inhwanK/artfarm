@@ -22,7 +22,7 @@ public class ExhibitionResponseDto {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private Category category;
+	private String category;
 	private String place;
 	private String url;
 	private boolean onOff;
@@ -39,7 +39,7 @@ public class ExhibitionResponseDto {
 		this.subTitle = entity.getSubTitle();
 		this.discription = entity.getDiscription();
 		this.author = entity.getAuthor();
-		this.category = entity.getCategory();
+		this.category = entity.getCategory().getCategory();
 		this.place = entity.getPlace();
 		this.url = entity.getUrl();
 		this.onOff = entity.isOnOff();

@@ -3,7 +3,6 @@ package org.hustar.artfarm.domain.exhibition;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -36,7 +35,6 @@ public class Exhibition {
 	private String subTitle;
 	private String discription;
 	private String author;
-	
 	
 	@Enumerated(EnumType.STRING)
 	private Category category;

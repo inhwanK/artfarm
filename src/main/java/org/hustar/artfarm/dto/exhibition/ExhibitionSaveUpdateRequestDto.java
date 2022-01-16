@@ -37,7 +37,13 @@ public class ExhibitionSaveUpdateRequestDto {
 		this.subTitle = subTitle;
 		this.discription = discription;
 		this.author = author;
-		this.category = category;
+		
+		if(category != null) {
+			this.category = category;
+		}else {
+			this.category = Category.NONE;
+		}
+		
 		this.place = place;
 		this.url = url;
 		this.onOff = onOff;

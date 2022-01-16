@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum Category {
 
-	NON("NON","구분없음"),
+	NONE("NONE","구분없음"),
 	VISUAL("VISUAL","시각"),
 	INDUSTRIAL("INDUSTRIAL","산업"),
 	ARCHITECT("ARCHITECT","건축"),
