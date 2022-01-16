@@ -37,7 +37,6 @@ public class Exhibition {
 	private String discription;
 	private String author;
 	
-	
 	@Enumerated(EnumType.STRING)
 	private Category category;
 	
