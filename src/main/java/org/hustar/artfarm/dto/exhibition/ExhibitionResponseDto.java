@@ -1,8 +1,12 @@
 package org.hustar.artfarm.dto.exhibition;
 
-import org.hustar.artfarm.domain.exhibition.Exhibition;
+import java.util.ArrayList;
+import java.util.List;
 
-import groovy.transform.builder.Builder;
+import org.hustar.artfarm.domain.exhibition.Category;
+import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.domain.period.ExhibitionPeriod;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -25,6 +29,8 @@ public class ExhibitionResponseDto {
 	
 //	수정 가능성 많음
 	private String thumbnail;
+	
+	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	public ExhibitionResponseDto(Exhibition entity) {
 		super();
@@ -33,11 +39,13 @@ public class ExhibitionResponseDto {
 		this.subTitle = entity.getSubTitle();
 		this.discription = entity.getDiscription();
 		this.author = entity.getAuthor();
-		this.category = entity.getCategory();
+		this.category = entity.getCategory().getCategory();
 		this.place = entity.getPlace();
 		this.url = entity.getUrl();
 		this.onOff = entity.isOnOff();
 		this.thumbnail = entity.getThumbnail();
+		
+		entity.getExhPeriod().forEach(i -> this.exhPeriod.add(i));
 	}
 	
 	

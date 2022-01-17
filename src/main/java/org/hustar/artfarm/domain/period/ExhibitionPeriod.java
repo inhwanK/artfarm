@@ -1,7 +1,7 @@
 package org.hustar.artfarm.domain.period;
 
-import java.sql.Timestamp;
-import java.util.Date;
+import java.sql.Time;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -27,16 +29,21 @@ public class ExhibitionPeriod {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long periodIdx;
 	
-	@ManyToOne
-	@JoinColumn(name = "exhibition_idx")
+	
+//	join 무한 루프 좀 더 제대로 공부할 필요 있음.
+//	@JsonIgnoreProperties("exhibition") 
+	@JsonBackReference
+	@ManyToOne @JoinColumn(name = "exhibition_idx")
 	private Exhibition exhibition;
 	
-	private Date date;
-	private Timestamp startTime;
-	private Timestamp endTime;
+	private LocalDate date;
+	
+//	private Time
+	private Time startTime;
+	private Time endTime;
 	
 	@Builder
-	public ExhibitionPeriod(Long periodIdx, Exhibition exhibition, Date date, Timestamp startTime, Timestamp endTime) {
+	public ExhibitionPeriod(Long periodIdx, Exhibition exhibition, LocalDate date, Time startTime, Time endTime) {
 		super();
 		this.periodIdx = periodIdx;
 		this.exhibition= exhibition;
@@ -45,7 +52,7 @@ public class ExhibitionPeriod {
 		this.endTime = endTime;
 	}
 	
-	public void update(Date date, Timestamp startTime,Timestamp endTime) {
+	public void update(LocalDate date, Time startTime,Time endTime) {
 		this.date = date;
 		this.startTime = startTime;
 		this.endTime = endTime;

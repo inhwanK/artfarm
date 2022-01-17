@@ -19,12 +19,12 @@ DROP TABLE IF EXISTS `artfarm`.`exhibition_data` RESTRICT;
 -- 공지사항
 CREATE TABLE `artfarm`.`notice` (
 	`notice_idx`  INT(11) UNSIGNED NOT NULL COMMENT '공지사항번호', -- 공지사항번호
-	`title`       VARCHAR(256)     NULL     COMMENT '공지제목', -- 공지제목
-	`content`     VARCHAR(9999)    NULL     COMMENT '공지내용', -- 공지내용
-	`writer`      VARCHAR(30)      NULL     COMMENT '작성자', -- 작성자
-	`views`       INT(11)          NULL     COMMENT '조회수', -- 조회수
-	`regist_date` DATETIME         NULL     COMMENT '작성일', -- 작성일
-	`update_date` DATETIME         NULL     COMMENT '수정일' -- 수정일
+	`title`       VARCHAR(256)     NOT NULL COMMENT '공지제목', -- 공지제목
+	`content`     VARCHAR(9999)    NOT NULL COMMENT '공지내용', -- 공지내용
+	`writer`      VARCHAR(30)      NOT NULL DEFAULT '관리자' COMMENT '작성자', -- 작성자
+	`views`       INT(11) UNSIGNED NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
+	`regist_date` DATETIME         NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+	`update_date` DATETIME         NOT NULL DEFAULT now() COMMENT '수정일' -- 수정일
 )
 COMMENT '공지사항';
 
@@ -66,10 +66,10 @@ ALTER TABLE `artfarm`.`exhibition`
 -- 전시기간
 CREATE TABLE `artfarm`.`exhibition_period` (
 	`period_idx`     BIGINT(22) UNSIGNED NOT NULL COMMENT '전시기간번호', -- 전시기간번호
-	`exhibition_idx` BIGINT(20) UNSIGNED NULL     COMMENT '전시회번호', -- 전시회번호
-	`date`           DATE                NULL     COMMENT '전시일', -- 전시일
-	`start_time`     TIMESTAMP           NULL     COMMENT '시작시간', -- 시작시간
-	`end_time`       TIMESTAMP           NULL     COMMENT '종료시간' -- 종료시간
+	`exhibition_idx` BIGINT(20) UNSIGNED NOT NULL COMMENT '전시회번호', -- 전시회번호
+	`date`           DATE                NOT NULL COMMENT '전시일', -- 전시일
+	`start_time`     TIME                NULL     COMMENT '시작시간', -- 시작시간
+	`end_time`       TIME                NULL     COMMENT '종료시간' -- 종료시간
 )
 COMMENT '전시기간';
 
@@ -110,7 +110,9 @@ ALTER TABLE `artfarm`.`exhibition_period`
 		)
 		REFERENCES `artfarm`.`exhibition` ( -- 전시회
 			`exhibition_idx` -- 전시회번호
-		);
+		)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE;
 
 -- 전시자료
 ALTER TABLE `artfarm`.`exhibition_data`

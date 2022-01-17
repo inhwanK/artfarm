@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -11,6 +13,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
+import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -30,7 +35,10 @@ public class Exhibition {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private String category;
+	
+	@Enumerated(EnumType.STRING)
+	private Category category;
+	
 	private String place;
 	private String url;
 	private boolean onOff;
@@ -38,14 +46,14 @@ public class Exhibition {
 //	수정 가능성 많음
 	private String thumbnail;
 	
-	@OneToMany(mappedBy = "exhibition")
+//	조인 무한루프 좀 더 공부해야함.
+//	@JsonIgnoreProperties("exhibition")
+	@OneToMany(mappedBy = "exhibition") @JsonManagedReference
 	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail) {
-		super();
-		this.exhibitionIdx = exhibitionIdx;
+			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -55,11 +63,11 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto.toEntity()));
 	}
 
-	@Builder
 	public void update(String title, String subTitle, String discription, String author,
-			String category, String place, String url, boolean onOff, String thumbnail) {
+			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -69,6 +77,7 @@ public class Exhibition {
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto.toEntity()));
 	}
 
 }

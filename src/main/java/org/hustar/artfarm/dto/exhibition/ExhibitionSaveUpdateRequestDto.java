@@ -1,8 +1,12 @@
 package org.hustar.artfarm.dto.exhibition;
 
-import org.hustar.artfarm.domain.exhibition.Exhibition;
+import java.util.ArrayList;
+import java.util.List;
 
-import lombok.Builder;
+import org.hustar.artfarm.domain.exhibition.Category;
+import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -16,25 +20,35 @@ public class ExhibitionSaveUpdateRequestDto {
 	private String subTitle;
 	private String discription;
 	private String author;
-	private String category;
+	private Category category;
 	private String place;
 	private String url;
 	private boolean onOff;
 	private String thumbnail;
 	
-	@Builder
-	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, String category,
-			String place, String url, boolean onOff, String thumbnail) {
+//	전시회 기간 배열 형태로 파라미터 전달해야함.
+	private List<ExhibitionPeriodSaveRequestDto> exhPeriod = new ArrayList<ExhibitionPeriodSaveRequestDto>();
+	
+//	@Builder
+	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, Category category,
+			String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		super();
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
 		this.author = author;
-		this.category = category;
+		
+		if(category != null) {
+			this.category = category;
+		}else {
+			this.category = Category.NONE;
+		}
+		
 		this.place = place;
 		this.url = url;
 		this.onOff = onOff;
 		this.thumbnail = thumbnail;
+		exhPeriod.forEach(dto -> this.exhPeriod.add(dto));
 	}
 	
 	public Exhibition toEntity() {
@@ -48,6 +62,7 @@ public class ExhibitionSaveUpdateRequestDto {
 				.url(url)
 				.onOff(onOff)
 				.thumbnail(thumbnail)
+				.exhPeriod(exhPeriod)
 				.build();
 	}
 }

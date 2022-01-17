@@ -1,6 +1,6 @@
 package org.hustar.artfarm.domain.notice;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,32 +8,35 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
- 
+
 @Getter
 @NoArgsConstructor
+@DynamicInsert
+@DynamicUpdate
 @Entity
-@Table(name="notice")
+@Table(name = "notice")
 public class Notice {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long noticeIdx;
-	
+
 	private String title;
 	private String content;
 	private String writer;
 	private Long views;
-	private Date registDate;
-	private Date updateDate;
-	
+	private LocalDateTime registDate;
+	private LocalDateTime updateDate;
+
 	@Builder
-	public Notice(Long noticeIdx, String title, String content, String writer, Long views, Date registDate,
-			Date updateDate) {
-		super();
-		this.noticeIdx = noticeIdx;
+	public Notice(Long noticeIdx, String title, String content, String writer, Long views, LocalDateTime registDate,
+			LocalDateTime updateDate) {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
@@ -42,9 +45,13 @@ public class Notice {
 		this.updateDate = updateDate;
 	}
 
-	public void update(String title, String content, Date updateDate) {
+	public void update(String title, String content) {
 		this.title = title;
 		this.content = content;
-		this.updateDate = updateDate;
+		this.updateDate = LocalDateTime.now();
+	}
+
+	public void increaseViews() {
+		this.views += 1;
 	}
 }
