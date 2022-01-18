@@ -8,6 +8,7 @@ import java.util.Set;
 
 import javax.transaction.Transactional;
 
+import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
@@ -63,7 +64,7 @@ public class ExhibitionServiceImpl implements ExhibitionService {
 	
 	@Transactional
 	@Override
-	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category, Pageable pageable) {
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category, Pageable pageable) {
 		Page<ExhibitionResponseDto> exhibitionList = 
 				exhibitionRepository.findAllByCategory(category, pageable).map(entity -> new ExhibitionResponseDto(entity));
 		
