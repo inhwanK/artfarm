@@ -3,7 +3,6 @@ package org.hustar.artfarm.dto.exhibition;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 

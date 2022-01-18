@@ -9,5 +9,5 @@ public interface ExhibitionRepository extends JpaRepository<Exhibition, Long> {
 	Page<Exhibition> findAllByOrderByExhibitionIdxDesc(Pageable pageable);
 
 //	and date(ep.date) = date(now())")
-	Page<Exhibition> findAllByCategory(String category, Pageable pageable);
+	Page<Exhibition> findAllByCategory(Category category, Pageable pageable);
 }
