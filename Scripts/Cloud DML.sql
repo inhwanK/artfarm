@@ -1,6 +1,7 @@
 select * from notice;
 select * from exhibition;
 select * from exhibition_period;
+select * from exhibition_file;
 
 select DISTINCT exhibition_idx from exhibition_period;
 
