@@ -31,7 +31,13 @@ public class ExhibitionFileSaveRequestDto {
 	}
 	
 	public ExhibitionFile toEntity() {
-		return ExhibitionFile.buil  
+		return ExhibitionFile.builder()
+				.exhibition(exhibition)
+				.fileName(fileName)
+				.filePath(filePath)
+				.fileSize(fileSize)
+				.fileRegDate(fileRegDate)
+				.build();
 	}
 	
 }

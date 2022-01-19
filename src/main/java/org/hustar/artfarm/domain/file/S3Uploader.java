@@ -3,6 +3,7 @@ package org.hustar.artfarm.domain.file;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -32,11 +33,9 @@ public class S3Uploader {
 	}
 
 	private String upload(File uploadFile, Long exhibitionIdx, String dirName) {
+		
 		String fileName = dirName + "/" + exhibitionIdx + "/" + uploadFile.getName();
-		System.out.println("fileName > " + fileName);
-
 		String uploadImageUrl = putS3(uploadFile, fileName);
-		System.out.println("uploadImageUrl > " + uploadImageUrl);
 		removeNewFile(uploadFile);
 		return uploadImageUrl;
 	}
@@ -44,9 +43,7 @@ public class S3Uploader {
 	private String putS3(File uploadFile, String fileName) {
 		amazonS3Client.putObject(
 				new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
-
-		System.out.println("Url > " + amazonS3Client.getUrl(bucket, fileName).toString());
-
+		
 		return amazonS3Client.getUrl(bucket, fileName).toString();
 	}
 

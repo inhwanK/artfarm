@@ -29,14 +29,13 @@ public class RestFileController {
 	}
 
 //	/images/{exhibition_idx}
-	@PostMapping("/exhibition/files")
-	public String upload(@RequestParam("files") MultipartFile multipartFile,
-			@PathVariable("exhibitionIdx") Long exhibitionIdx) throws IOException {
+	@PostMapping("/exhibition/files/{exhibitionIdx}")
+	public String upload(@RequestParam("files") MultipartFile multipartFile, @PathVariable("exhibitionIdx") Long exhibitionIdx) throws IOException {
 //		s3Uploader.upload(multipartFile, "exhibition");
 		exhibitionFileService.uploadFileAndInfo(multipartFile, exhibitionIdx, "exhibition");
 		return "test";
 	}
-	
+
 //	/exhibition/thumbnail
 //	exhibitionFileService.uploadFileAndInfo(multipartFile, exhibitionIdx, "exhibition/");
 }
