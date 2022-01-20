@@ -1,4 +1,4 @@
-package org.hustar.artfarm.file;
+package org.hustar.artfarm.domain.file;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -24,15 +24,16 @@ public class S3Uploader {
 	@Value("${cloud.aws.s3.bucket}")
 	public String bucket;
 
-	public String upload(MultipartFile multipartFile, String dirName) throws IOException {
+	public String upload(MultipartFile multipartFile, Long exhibitionIdx, String dirName) throws IOException {
 		File uploadFile = convert(multipartFile)
 				.orElseThrow(() -> new IllegalArgumentException("MultipartFile -> File로 전환이 실패했습니다."));
 
-		return upload(uploadFile, dirName);
+		return upload(uploadFile, exhibitionIdx, dirName);
 	}
 
-	private String upload(File uploadFile, String dirName) {
-		String fileName = dirName + "/" + uploadFile.getName();
+	private String upload(File uploadFile, Long exhibitionIdx, String dirName) {
+		
+		String fileName = dirName + "/" + exhibitionIdx + "/" + uploadFile.getName();
 		String uploadImageUrl = putS3(uploadFile, fileName);
 		removeNewFile(uploadFile);
 		return uploadImageUrl;
@@ -41,6 +42,7 @@ public class S3Uploader {
 	private String putS3(File uploadFile, String fileName) {
 		amazonS3Client.putObject(
 				new PutObjectRequest(bucket, fileName, uploadFile).withCannedAcl(CannedAccessControlList.PublicRead));
+		
 		return amazonS3Client.getUrl(bucket, fileName).toString();
 	}
 

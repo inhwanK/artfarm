@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS `artfarm`.`exhibition` RESTRICT;
 DROP TABLE IF EXISTS `artfarm`.`exhibition_period` RESTRICT;
 
 -- 전시자료
-DROP TABLE IF EXISTS `artfarm`.`exhibition_data` RESTRICT;
+DROP TABLE IF EXISTS `artfarm`.`exhibition_file` RESTRICT;
 
 -- 공지사항
 CREATE TABLE `artfarm`.`notice` (
@@ -83,25 +83,6 @@ ALTER TABLE `artfarm`.`exhibition_period`
 ALTER TABLE `artfarm`.`exhibition_period`
 	MODIFY COLUMN `period_idx` BIGINT(22) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '전시기간번호';
 
--- 전시자료
-CREATE TABLE `artfarm`.`exhibition_data` (
-	`data_idx`       BIGINT(23) UNSIGNED NOT NULL COMMENT '전시자료번호', -- 전시자료번호
-	`exhibition_idx` BIGINT(20) UNSIGNED NULL     COMMENT '전시회번호', -- 전시회번호
-	`name`           VARCHAR(50)         NULL     COMMENT '자료명', -- 자료명
-	`data_path`      VARCHAR(256)        NULL     COMMENT '자료경로' -- 자료경로
-)
-COMMENT '전시자료';
-
--- 전시자료
-ALTER TABLE `artfarm`.`exhibition_data`
-	ADD CONSTRAINT `PK_exhibition_data` -- 전시자료 기본키
-		PRIMARY KEY (
-			`data_idx` -- 전시자료번호
-		);
-
-ALTER TABLE `artfarm`.`exhibition_data`
-	MODIFY COLUMN `data_idx` BIGINT(23) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '전시자료번호';
-
 -- 전시기간
 ALTER TABLE `artfarm`.`exhibition_period`
 	ADD CONSTRAINT `FK_exhibition_TO_exhibition_period` -- 전시회 -> 전시기간
@@ -113,10 +94,30 @@ ALTER TABLE `artfarm`.`exhibition_period`
 		)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE;
+	
+-- 전시자료
+CREATE TABLE `artfarm`.`exhibition_file` (
+	`file_idx`       BIGINT(23) UNSIGNED NOT NULL, -- 전시자료번호
+	`exhibition_idx` BIGINT(20) UNSIGNED NULL,     -- 전시회번호
+	`file_name`      VARCHAR(256)        NULL,     -- 파일명
+	`file_path`      VARCHAR(256)        NULL,     -- 파일경로
+	`file_size`      VARCHAR(256)        NULL,     -- 용량
+	`file_reg_date`  DATETIME            NULL      -- 등록일시
+);
 
 -- 전시자료
-ALTER TABLE `artfarm`.`exhibition_data`
-	ADD CONSTRAINT `FK_exhibition_TO_exhibition_data` -- 전시회 -> 전시자료
+ALTER TABLE `artfarm`.`exhibition_file`
+	ADD CONSTRAINT `PK_exhibition_file` -- 전시자료 기본키
+		PRIMARY KEY (
+			`file_idx` -- 전시자료번호
+		);
+
+ALTER TABLE `artfarm`.`exhibition_file`
+	MODIFY COLUMN `file_idx` BIGINT(23) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+-- 전시자료
+ALTER TABLE `artfarm`.`exhibition_file`
+	ADD CONSTRAINT `FK_exhibition_TO_exhibition_file` -- 전시회 -> 전시자료
 		FOREIGN KEY (
 			`exhibition_idx` -- 전시회번호
 		)
