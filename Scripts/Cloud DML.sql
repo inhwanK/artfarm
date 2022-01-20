@@ -5,7 +5,7 @@ select * from exhibition_file;
 
 select DISTINCT exhibition_idx from exhibition_period;
 
-insert into notice(title, content, writer) values('공지사항 디폴트 값 테스트','공지사항 테스트를 위한 글입니다.','김인환');
+insert into notice(title, content, writer) values('김세현 재밋네~~~','공지사항 테스트를 위한 글입니다.','김세현');
 
 insert into exhibition(title, sub_title,discription,author,category,place,url,on_off,thumbnail)
 				values('김인표의 화려한 시각예술','시각이란 무엇인가?','마서웨이홍의 등장! 시각을 포기할 것 인가?',
@@ -20,7 +20,7 @@ insert into exhibition_period(exhibition_idx, `date`, start_time, end_time)
 select e.exhibition_idx, e.title ,e.sub_title ,e.author 
   from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx
 group by ep.exhibition_idx;
-  
+
 select e.title ,e.sub_title
   from exhibition_period ep join exhibition e on ep.exhibition_idx = e.exhibition_idx;
   
