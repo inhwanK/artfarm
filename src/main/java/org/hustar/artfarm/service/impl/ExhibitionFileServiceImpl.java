@@ -55,29 +55,18 @@ public class ExhibitionFileServiceImpl implements org.hustar.artfarm.service.Exh
 	@Override
 	public Long uploadFileAndInfo(MultipartFile multipartFile, Long exhibitionIdx, String dirName) throws IOException {
 
-		// dirName 지정
-
 		String fileUrl = s3Uploader.upload(multipartFile, exhibitionIdx, dirName);
-
-//		System.out.println("service에서 fileName 뽑아오기 2 > " + multipartFile.getOriginalFilename());
-//		System.out.println("파일 용량 > " + multipartFile.getSize());
-//
-//		ExhibitionFileSaveRequestDto requestDto = new ExhibitionFileSaveRequestDto();
-//		
-//		requestDto.setExhibition(exhibitionRepository.findById(exhibitionIdx)
-//				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + exhibitionIdx)));
-//		requestDto.setFileName(multipartFile.getOriginalFilename());
-//		requestDto.setFilePath(fileUrl);
-//		requestDto.setFileSize(multipartFile.getSize() + "");
-//		requestDto.setFileRegDate(LocalDateTime.now());
-
+		
 		Exhibition exhibition = exhibitionRepository.findById(exhibitionIdx)
 				.orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + exhibitionIdx));
 
-//		ExhibitionFile exhFileEntity = fileRepository.save(requestDto.toEntity());
-		ExhibitionFile exhFileEntity = ExhibitionFile.builder().exhibition(exhibition)
-				.fileName(multipartFile.getOriginalFilename()).filePath(fileUrl).fileSize(multipartFile.getSize() + "")
-				.fileRegDate(LocalDateTime.now()).build();
+		ExhibitionFile exhFileEntity = ExhibitionFile.builder()
+				.exhibition(exhibition)
+				.fileName(multipartFile.getOriginalFilename())
+				.filePath(fileUrl)
+				.fileSize(multipartFile.getSize() + "")
+				.fileRegDate(LocalDateTime.now())
+				.build();
 
 		fileRepository.save(exhFileEntity);
 		return exhFileEntity.getFileIdx();

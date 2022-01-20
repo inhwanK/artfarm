@@ -28,7 +28,6 @@ import lombok.RequiredArgsConstructor;
 public class RestExhibitionController {
 
 	private final ExhibitionService exhibitionService;
-//	private final ExhibitionPeriodService exhibitionPeriodService;
 
 //	전시회 목록 뽑기, 페이징 처리 되어 있음.
 	@GetMapping("/exhibitionlist")
@@ -55,7 +54,6 @@ public class RestExhibitionController {
 	@GetMapping("/exhibition/category")
 	public Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category,Pageable pageable) {
 
-		
 		return exhibitionService.getExhibitionListByCategory(category, pageable);
 	}
 
