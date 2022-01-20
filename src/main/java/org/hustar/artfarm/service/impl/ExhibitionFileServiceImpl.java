@@ -12,7 +12,6 @@ import org.hustar.artfarm.domain.exhibition.ExhibitionRepository;
 import org.hustar.artfarm.domain.file.ExhibitionFile;
 import org.hustar.artfarm.domain.file.ExhibitionFileRepository;
 import org.hustar.artfarm.domain.file.S3Uploader;
-import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.file.ExhibitionFileResponseDto;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
