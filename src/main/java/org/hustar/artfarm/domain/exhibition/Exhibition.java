@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.hustar.artfarm.domain.file.ExhibitionFile;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 import org.hustar.artfarm.dto.period.ExhibitionPeriodSaveRequestDto;
 
@@ -30,30 +31,36 @@ public class Exhibition {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long exhibitionIdx;
-	
+
 	private String title;
 	private String subTitle;
 	private String discription;
 	private String author;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Category category;
-	
+
 	private String place;
 	private String url;
 	private boolean onOff;
-	
+
 //	수정 가능성 많음
 	private String thumbnail;
-	
+
+	@OneToMany(mappedBy = "exhibition")
+	@JsonManagedReference
+	private List<ExhibitionFile> exhFile = new ArrayList<ExhibitionFile>();
+
 //	조인 무한루프 좀 더 공부해야함.
 //	@JsonIgnoreProperties("exhibition")
-	@OneToMany(mappedBy = "exhibition") @JsonManagedReference
+	@OneToMany(mappedBy = "exhibition")
+	@JsonManagedReference
 	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	@Builder
 	public Exhibition(Long exhibitionIdx, String title, String subTitle, String discription, String author,
-			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
+			Category category, String place, String url, boolean onOff, String thumbnail,
+			List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -66,8 +73,8 @@ public class Exhibition {
 		exhPeriod.forEach(dto -> this.exhPeriod.add(dto.toEntity()));
 	}
 
-	public void update(String title, String subTitle, String discription, String author,
-			Category category, String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
+	public void update(String title, String subTitle, String discription, String author, Category category,
+			String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		this.title = title;
 		this.subTitle = subTitle;
 		this.discription = discription;
@@ -81,4 +88,3 @@ public class Exhibition {
 	}
 
 }
-

@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,14 +28,15 @@ public class ExhibitionFile {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long fileIdx;
 
-	@ManyToOne
-	@JoinColumn(name = "exhibition_idx")
+	@JsonBackReference
+	@ManyToOne @JoinColumn(name = "exhibition_idx")
 	private Exhibition exhibition;
+	
 	private String fileName;
 	private String filePath;
 	private String fileSize;
 	private LocalDateTime fileRegDate;
-
+	
 	@Builder
 	public ExhibitionFile(Long fileIdx, Exhibition exhibition, String fileName, String filePath, String fileSize,
 			LocalDateTime fileRegDate) {
@@ -44,5 +47,8 @@ public class ExhibitionFile {
 		this.fileSize = fileSize;
 		this.fileRegDate = fileRegDate;
 	}
+
+	
+	
 
 }

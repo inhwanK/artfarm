@@ -2,7 +2,6 @@ package org.hustar.artfarm.dto.file;
 
 import java.time.LocalDateTime;
 
-import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.file.ExhibitionFile;
 
 import lombok.Getter;
@@ -13,6 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class ExhibitionFileResponseDto {
+	
 	private Long fileIdx;
 //	private Exhibition exhibition;
 	private Long exhibitionIdx;
@@ -24,7 +24,6 @@ public class ExhibitionFileResponseDto {
 	public ExhibitionFileResponseDto(ExhibitionFile entity) {
 		super();
 		this.fileIdx = entity.getFileIdx();
-//		this.exhibition = entity.getExhibition();
 		this.exhibitionIdx = entity.getExhibition().getExhibitionIdx();
 		this.fileName = entity.getFileName();
 		this.filePath = entity.getFilePath();
