@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hustar.artfarm.domain.exhibition.Exhibition;
+import org.hustar.artfarm.domain.file.ExhibitionFile;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
 import lombok.Getter;
@@ -29,6 +30,8 @@ public class ExhibitionResponseDto {
 //	수정 가능성 많음
 	private String thumbnail;
 	
+	private List<ExhibitionFile> exhFile = new ArrayList<ExhibitionFile>();
+	
 	private List<ExhibitionPeriod> exhPeriod = new ArrayList<ExhibitionPeriod>();
 
 	public ExhibitionResponseDto(Exhibition entity) {
@@ -43,7 +46,7 @@ public class ExhibitionResponseDto {
 		this.url = entity.getUrl();
 		this.onOff = entity.isOnOff();
 		this.thumbnail = entity.getThumbnail();
-		
+		entity.getExhFile().forEach(file ->this.exhFile.add(file));
 		entity.getExhPeriod().forEach(i -> this.exhPeriod.add(i));
 	}
 	
