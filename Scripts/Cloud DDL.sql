@@ -83,6 +83,27 @@ ALTER TABLE `artfarm`.`exhibition_period`
 ALTER TABLE `artfarm`.`exhibition_period`
 	MODIFY COLUMN `period_idx` BIGINT(22) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '전시기간번호';
 
+-- 전시자료
+CREATE TABLE `artfarm`.`exhibition_file` (
+	`file_idx`       BIGINT(23) UNSIGNED NOT NULL COMMENT '전시자료번호', -- 전시자료번호
+	`exhibition_idx` BIGINT(20) UNSIGNED NOT NULL COMMENT '전시회번호', -- 전시회번호
+	`file_name`      VARCHAR(256)        NULL     COMMENT '파일명', -- 파일명
+	`file_path`      VARCHAR(256)        NULL     COMMENT '파일경로', -- 파일경로
+	`file_size`      VARCHAR(256)        NULL     COMMENT '용량', -- 용량
+	`file_reg_date`  DATETIME            NULL     COMMENT '등록일시' -- 등록일시
+)
+COMMENT '전시자료';
+
+-- 전시자료
+ALTER TABLE `artfarm`.`exhibition_file`
+	ADD CONSTRAINT `PK_exhibition_file` -- 전시자료 기본키
+		PRIMARY KEY (
+			`file_idx` -- 전시자료번호
+		);
+
+ALTER TABLE `artfarm`.`exhibition_file`
+	MODIFY COLUMN `file_idx` BIGINT(23) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '전시자료번호';
+
 -- 전시기간
 ALTER TABLE `artfarm`.`exhibition_period`
 	ADD CONSTRAINT `FK_exhibition_TO_exhibition_period` -- 전시회 -> 전시기간
@@ -94,26 +115,6 @@ ALTER TABLE `artfarm`.`exhibition_period`
 		)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE;
-	
--- 전시자료
-CREATE TABLE `artfarm`.`exhibition_file` (
-	`file_idx`       BIGINT(23) UNSIGNED NOT NULL, -- 전시자료번호
-	`exhibition_idx` BIGINT(20) UNSIGNED NULL,     -- 전시회번호
-	`file_name`      VARCHAR(256)        NULL,     -- 파일명
-	`file_path`      VARCHAR(256)        NULL,     -- 파일경로
-	`file_size`      VARCHAR(256)        NULL,     -- 용량
-	`file_reg_date`  DATETIME            NULL      -- 등록일시
-);
-
--- 전시자료
-ALTER TABLE `artfarm`.`exhibition_file`
-	ADD CONSTRAINT `PK_exhibition_file` -- 전시자료 기본키
-		PRIMARY KEY (
-			`file_idx` -- 전시자료번호
-		);
-
-ALTER TABLE `artfarm`.`exhibition_file`
-	MODIFY COLUMN `file_idx` BIGINT(23) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 -- 전시자료
 ALTER TABLE `artfarm`.`exhibition_file`
