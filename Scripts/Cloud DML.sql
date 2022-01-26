@@ -5,14 +5,22 @@ select * from exhibition_file;
 
 select DISTINCT exhibition_idx from exhibition_period;
 
-insert into notice(title, content, writer) values('김세현 재밋네~~~','공지사항 테스트를 위한 글입니다.','김세현');
+insert into notice(title, content, writer) values('아트팜 공지사항','아트팜은 무명 아티스트들을 위한 플랫폼입니다.','관리자');
 
 insert into exhibition(title, sub_title,discription,author,category,place,url,on_off,thumbnail)
-				values('김인표의 화려한 시각예술','시각이란 무엇인가?','마서웨이홍의 등장! 시각을 포기할 것 인가?',
+				values('승화','昇華, Sublimation','「승화」는 2021년 국립현대미술관의 주최와 국립극장 국립무용단의 협조로 스톤 존스턴 영화감독이 2022년 5월 기획전시 《생의 찬미(Praise of Life)》를 위한 이머젼(immersion)컨텐츠로 제작되었다.
+
+처용무(處容舞)는 우리나라에서 기록된 가장 오래되기도 하고 지속적으로 궁중에 의해 1100년 이상 전해져 내려온 무용이며 정화 의식이기도 하다. 다섯명의 무용수들은 다섯가지 색(오방색五方色)을 입고 동서남북과 중앙의 “오행五行”을 상징한다.
+
+마지막에 들려주는 노래 "Beth"의 작사자는 성경의 시편에서 각 행의 첫글자가 히브리어의 두번째 글자 벳(ב)인 시에서 “청년이 무엇으로 그 행실을 깨끗케 하리이까” 하는 첫 질문에서 영감을 얻었다. 성경에 기록된 첫 살인에서 시작하여 노랫말은 마침내 2017년 미국 텍사스주에서 한 남자가 자신의 분노를 인내하지 못하고 26명을 희생시킨 참사의 영혼들을 기린다.',
 					'김인표',null,'휴스타 강의실','localhost:8080',true,'thumbnail domain');
-					
-insert into exhibition_period(exhibition_idx, `date`, start_time, end_time)
-						values(10,date_add(now(), interval -3 day),now(),date_add(now(), interval 4 hour));
+
+update exhibition 
+set thumbnail = 'https://artfarm-storage.s3.ap-northeast-2.amazonaws.com/exhibition/3/KakaoTalk_20220126_170420283.jpg'
+where exhibition_idx = 3;
+
+insert into exhibition_period(exhibition_idx, `date`) values(2,date_add(now(), interval 2 day));
+insert into exhibition_period(exhibition_idx, `date`) values(2,now());
 						
 insert into exhibition_period(exhibition_idx, `date`, start_time, end_time)
 						values(9,now(),now(),date_add(now(), interval 4 hour));
