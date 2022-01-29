@@ -45,10 +45,15 @@ dependencies {
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-oauth2-client'
 	
 	// aws
-	//implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE'
+	//implementation 'org.springframework.cloud:spring-cloud-starter-aws'
 	
 	// https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
-	//implementation 'com.amazonaws:aws-java-sdk-s3:1.12.128'
+	implementation 'com.amazonaws:aws-java-sdk-s3:1.12.128'
+	
+	//jackson databind
+	// https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+	implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.13.0'
+	
 }
 
 test {

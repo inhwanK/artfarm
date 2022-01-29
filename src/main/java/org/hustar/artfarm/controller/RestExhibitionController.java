@@ -2,6 +2,7 @@ package org.hustar.artfarm.controller;
 
 import java.time.LocalDate;
 
+import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.hustar.artfarm.service.ExhibitionService;
@@ -27,7 +28,6 @@ import lombok.RequiredArgsConstructor;
 public class RestExhibitionController {
 
 	private final ExhibitionService exhibitionService;
-//	private final ExhibitionPeriodService exhibitionPeriodService;
 
 //	전시회 목록 뽑기, 페이징 처리 되어 있음.
 	@GetMapping("/exhibitionlist")
@@ -52,9 +52,8 @@ public class RestExhibitionController {
 
 //	카테고리 별 전시회 검색, 예시) /api/exhibition/category?category=2022-01-22
 	@GetMapping("/exhibition/category")
-	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category,Pageable pageable) {
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category,Pageable pageable) {
 
-		
 		return exhibitionService.getExhibitionListByCategory(category, pageable);
 	}
 

@@ -29,7 +29,6 @@ public class ExhibitionSaveUpdateRequestDto {
 //	전시회 기간 배열 형태로 파라미터 전달해야함.
 	private List<ExhibitionPeriodSaveRequestDto> exhPeriod = new ArrayList<ExhibitionPeriodSaveRequestDto>();
 	
-//	@Builder
 	public ExhibitionSaveUpdateRequestDto(String title, String subTitle, String discription, String author, Category category,
 			String place, String url, boolean onOff, String thumbnail, List<ExhibitionPeriodSaveRequestDto> exhPeriod) {
 		super();

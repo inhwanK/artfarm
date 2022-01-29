@@ -28,9 +28,6 @@ public class NoticeResponseDto {
 		this.writer = entity.getWriter();
 		this.views = entity.getViews();	
 		this.registDate = entity.getRegistDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-		
-//		if(entity.getUpdateDate() != null) {
-			this.updateDate = entity.getUpdateDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
-//		}
+		this.updateDate = entity.getUpdateDate().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
 	}
 }

@@ -2,6 +2,7 @@ package org.hustar.artfarm.service;
 
 import java.time.LocalDate;
 
+import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
 import org.springframework.data.domain.Page;
@@ -13,7 +14,7 @@ public interface ExhibitionService {
 
 	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable);
 
-	public Page<ExhibitionResponseDto> getExhibitionListByCategory(String category, Pageable pageable);
+	public Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category, Pageable pageable);
 	
 	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 
