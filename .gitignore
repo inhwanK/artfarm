@@ -18,6 +18,7 @@ bin/
 !**/src/test/**/bin/
 .dbeaver
 application.properties
+application.properties
 
 ### IntelliJ IDEA ###
 .idea
