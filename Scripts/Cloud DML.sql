@@ -17,7 +17,10 @@ insert into exhibition(title, sub_title,discription,author,category,place,url,on
 
 update exhibition 
 set thumbnail = 'https://artfarm-storage.s3.ap-northeast-2.amazonaws.com/exhibition/3/KakaoTalk_20220126_170420283.jpg'
-where exhibition_idx = 3;
+
+update exhibition 
+set thumbnail = 'https://artfarm-storage.s3.ap-northeast-2.amazonaws.com/exhibition/6/9.jpg'
+where exhibition_idx = 6;
 
 insert into exhibition_period(exhibition_idx, `date`) values(2,date_add(now(), interval 2 day));
 insert into exhibition_period(exhibition_idx, `date`) values(2,now());
