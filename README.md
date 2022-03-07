@@ -10,23 +10,37 @@
 * [핵심 기능](#핵심-기능)
 * [트러블 슈팅](#트러블-슈팅)
 
+<br>
+
 ## 리포지토리
 * [Front-end 리포지토리](https://github.com/kiminpyo/artfarm-front)
 * [Back-end 리포지토리](https://github.com/inhwanK/artfarm)
 
+<br>
+
 ## 제작 기간 & 참여 인원
 * 2021년 12월 27일 ~ 2022년 1월 28일
 * 참여 인원 : [견종빈](https://github.com/jbGyeon), [김인표](https://github.com/kiminpyo), [김인환](https://github.com/inhwanK)
+
+<br>
 
 ## 사용 기술
 * Java 8
 * Spring Boot 2.6.2
 * Gradle 7.3.1
 
+<br>
+
 ## 프로젝트 구조도
+
+<br>
 
 ## ERD
 
+<br>
+
 ## 핵심 기능
+
+<br>
 
 ## 트러블 슈팅
