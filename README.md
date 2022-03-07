@@ -1,9 +1,9 @@
 # 아트 팜 - Art Farm
 > 아마추어(또는 무명)아티스트들을 위한 전시회 소개 웹 서비스
 
-# 리포지토리
-* [프론트엔드 리포지토리](https://github.com/kiminpyo/artfarm-front)
-* [백엔드 리포지토리](https://github.com/inhwanK/artfarm)
+### 리포지토리
+* [Front-end 리포지토리](https://github.com/kiminpyo/artfarm-front)
+* [Back-end 리포지토리](https://github.com/inhwanK/artfarm)
 
 ### 1. 제작 기간 & 참여 인원
 * 2021년 12월 27일 ~
