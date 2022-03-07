@@ -14,7 +14,7 @@
 
 ## 리포지토리
 * [Front-end 리포지토리](https://github.com/kiminpyo/artfarm-front)
-* [Back-end 리포지토리](https://github.com/inhwanK/artfarm)
+* [Back-end 리포지토리 (현재 리포지토리)](https://github.com/inhwanK/artfarm)
 
 <br>
 
