@@ -2,18 +2,21 @@
 > 아마추어(또는 무명)아티스트들을 위한 전시회 소개 웹 서비스
 
 ## 목차
-* [리포지토리](#리포지토리)
-* [제작 기간 & 참여 인원](#제작-기간--참여-인원)
-* [사용 기술](#사용-기술)
 * [서버 구조도](#서버-구조도)
-* [ERD](#erd)
+* [리포지토리](#리포지토리)
+* [제작 기간 & 참여 인원](#제작-기간-&-참여-인원)
 * [핵심 기능](#핵심-기능)
+* [사용 기술](#사용-기술)
+* [ERD](#erd)
 
 <br>
 
+## 서버 구조도
+![서버 구조도](document/architecture.png)
+
 ## 리포지토리
-* [Front-end 리포지토리](https://github.com/kiminpyo/artfarm-front)
-* [Back-end 리포지토리 (현재 리포지토리)](https://github.com/inhwanK/artfarm)
+* [Front-end 저장소](https://github.com/kiminpyo/artfarm-front)
+* [Back-end 저장소 (현재 리포지토리)](https://github.com/inhwanK/artfarm)
 
 <br>
 
@@ -25,22 +28,17 @@
 
 <br>
 
+## 핵심 기능
+* 온라인 전시자료 업로드
+* 온/오프라인 전시정보 제공
+
 ## 사용 기술
 * Java 8
 * Spring Boot 2.6.2
 * Gradle 7.3.1
-
-<br>
-
-## 서버 구조도
-![서버 구조도](document/architecture.png)
+* Spring Data JPA
 
 <br>
 
 ## ERD
 ![ERD](document/ERD.png)
-
-<br>
-
-## 핵심 기능
-
