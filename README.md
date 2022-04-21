@@ -5,10 +5,9 @@
 * [리포지토리](#리포지토리)
 * [제작 기간 & 참여 인원](#제작-기간--참여-인원)
 * [사용 기술](#사용-기술)
-* [프로젝트 구조도](#프로젝트-구조도)
+* [서버 구조도](#서버-구조도)
 * [ERD](#erd)
 * [핵심 기능](#핵심-기능)
-* [트러블 슈팅](#트러블-슈팅)
 
 <br>
 
@@ -20,7 +19,9 @@
 
 ## 제작 기간 & 참여 인원
 * 2021년 12월 27일 ~ 2022년 1월 28일
-* 참여 인원 : [견종빈](https://github.com/jbGyeon), [김인표](https://github.com/kiminpyo), [김인환](https://github.com/inhwanK)
+* [견종빈](https://github.com/jbGyeon) - 프론트엔드 개발 보조, 기획 
+* [김인표](https://github.com/kiminpyo) - 프론트엔드 개발
+* [김인환](https://github.com/inhwanK) - 백엔드 개발
 
 <br>
 
@@ -31,16 +32,15 @@
 
 <br>
 
-## 프로젝트 구조도
+## 서버 구조도
+![서버 구조도](document/architecture.png)
 
 <br>
 
 ## ERD
+![ERD](document/ERD.png)
 
 <br>
 
 ## 핵심 기능
 
-<br>
-
-## 트러블 슈팅
