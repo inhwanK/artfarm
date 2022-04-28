@@ -37,6 +37,7 @@
 * Spring Boot 2.6.2
 * Gradle 7.3.1
 * Spring Data JPA
+* Vue.js
 
 <br>
 
