@@ -16,7 +16,7 @@ import com.amazonaws.services.s3.model.PutObjectRequest;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-@Component
+//@Component
 public class S3Uploader {
 
 	private final AmazonS3Client amazonS3Client;

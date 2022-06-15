@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class ExhibitionFileServiceImpl implements org.hustar.artfarm.service.ExhibitionFileService {
 
-	private final S3Uploader s3Uploader;
+//	private final S3Uploader s3Uploader;
 	private final ExhibitionRepository exhibitionRepository;
 	private final ExhibitionFileRepository fileRepository;
 
@@ -51,10 +51,12 @@ public class ExhibitionFileServiceImpl implements org.hustar.artfarm.service.Exh
 		return responseList;
 	}
 
+
+
 	@Transactional
 	@Override
 	public Long uploadFileAndInfo(MultipartFile multipartFile, Long exhibitionIdx, String dirName) throws IOException {
-
+/*
 		String fileUrl = s3Uploader.upload(multipartFile, exhibitionIdx, dirName);
 		
 		Exhibition exhibition = exhibitionRepository.findById(exhibitionIdx)
@@ -70,6 +72,9 @@ public class ExhibitionFileServiceImpl implements org.hustar.artfarm.service.Exh
 
 		fileRepository.save(exhFileEntity);
 		return exhFileEntity.getFileIdx();
+			 */
+		return null;
 	}
+
 
 }
