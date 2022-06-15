@@ -8,9 +8,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface ExhibitionFileService {
 
-	public ExhibitionFileResponseDto getFile(Long fileIdx);
+	ExhibitionFileResponseDto getFile(Long fileIdx);
 	
-	public List<ExhibitionFileResponseDto> getFileByExhibition(Long exhibitionIdx);
+	List<ExhibitionFileResponseDto> getFileByExhibition(Long exhibitionIdx);
 	
-	public Long uploadFileAndInfo(MultipartFile multipartFile, Long exhibitionIdx, String dirName) throws IOException;
+	Long uploadFileAndInfo(MultipartFile multipartFile, Long exhibitionIdx, String dirName) throws IOException;
 }

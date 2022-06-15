@@ -10,17 +10,17 @@ import org.springframework.data.domain.Pageable;
 
 public interface ExhibitionService {
 
-	public Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable);
+	Page<ExhibitionResponseDto> getExhibitionList(Pageable pageable);
 
-	public Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable);
+	Page<ExhibitionResponseDto> getExhibitionListByDate(LocalDate date, Pageable pageable);
 
-	public Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category, Pageable pageable);
+	Page<ExhibitionResponseDto> getExhibitionListByCategory(Category category, Pageable pageable);
 	
-	public ExhibitionResponseDto getExhibition(Long exhibitionIdx);
+	ExhibitionResponseDto getExhibition(Long exhibitionIdx);
 
-	public Long registerExhibition(ExhibitionSaveUpdateRequestDto dto);
+	Long registerExhibition(ExhibitionSaveUpdateRequestDto dto);
 
-	public Long updateExhibition(Long exhibitionIdx, ExhibitionSaveUpdateRequestDto dto);
+	Long updateExhibition(Long exhibitionIdx, ExhibitionSaveUpdateRequestDto dto);
 
-	public Long deleteExhibition(Long exhibitionIdx);
+	Long deleteExhibition(Long exhibitionIdx);
 }
