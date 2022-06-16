@@ -5,18 +5,22 @@
 * [서버 구조도](#서버-구조도)
 * [리포지토리](#리포지토리)
 * [제작 기간 & 참여 인원](#제작-기간--참여-인원)
-* [핵심 기능](#핵심-기능)
+* [주요 기능](#주요-기능)
 * [사용 기술](#사용-기술)
 * [ERD](#erd)
+* [프로젝트 이슈 정리](#프로젝트-이슈-정리)
 
 <br>
-
-## 서버 구조도
-![서버 구조도](document/architecture.png)
 
 ## 리포지토리
 * [Front-end 저장소](https://github.com/kiminpyo/artfarm-front)
 * [Back-end 저장소 (현재 리포지토리)](https://github.com/inhwanK/artfarm)
+
+## 서버 구조도
+![서버 구조도](document/architecture.png)
+
+## ERD
+![ERD](document/ERD.png)
 
 <br>
 
@@ -28,7 +32,7 @@
 
 <br>
 
-## 핵심 기능
+## 주요 기능
 * 온라인 전시자료 업로드
 * 온/오프라인 전시정보 제공
 
@@ -41,5 +45,6 @@
 
 <br>
 
-## ERD
-![ERD](document/ERD.png)
+## 프로젝트 이슈 정리
+* [Spring Security를 이용한 CORS 정책 설정](https://bool-flower.tistory.com/14) - [김인환 블로그](https://bool-flower.tistory.com)
+
