@@ -36,6 +36,10 @@ dependencies {
 	// mysql
 	implementation 'mysql:mysql-connector-java:8.0.27'
 
+	// swagger
+	implementation group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
+	implementation group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
+
 	// thymeleaf	
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
