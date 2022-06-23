@@ -3,6 +3,7 @@ package org.hustar.artfarm.controller;
 import java.io.IOException;
 import java.util.List;
 
+import io.swagger.annotations.Api;
 import org.hustar.artfarm.dto.file.ExhibitionFileResponseDto;
 import org.hustar.artfarm.service.ExhibitionFileService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import lombok.RequiredArgsConstructor;
 
+@Api(tags ="파일 처리 API")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
