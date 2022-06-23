@@ -2,6 +2,7 @@ package org.hustar.artfarm.controller;
 
 import java.time.LocalDate;
 
+import io.swagger.annotations.Api;
 import org.hustar.artfarm.domain.exhibition.Category;
 import org.hustar.artfarm.dto.exhibition.ExhibitionResponseDto;
 import org.hustar.artfarm.dto.exhibition.ExhibitionSaveUpdateRequestDto;
@@ -22,6 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
 
+@Api(tags ="전시회 정보 처리 API")
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/api")
