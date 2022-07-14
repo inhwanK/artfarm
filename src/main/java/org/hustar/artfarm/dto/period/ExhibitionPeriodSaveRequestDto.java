@@ -3,10 +3,10 @@ package org.hustar.artfarm.dto.period;
 import java.sql.Time;
 import java.time.LocalDate;
 
+import lombok.Builder;
 import org.hustar.artfarm.domain.exhibition.Exhibition;
 import org.hustar.artfarm.domain.period.ExhibitionPeriod;
 
-import groovy.transform.builder.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
