@@ -1,6 +1,7 @@
 package org.hustar.artfarm.controller;
 
 import io.swagger.annotations.*;
+import lombok.RequiredArgsConstructor;
 import org.hustar.artfarm.dto.notice.NoticeResponseDto;
 import org.hustar.artfarm.dto.notice.NoticeSaveRequestDto;
 import org.hustar.artfarm.dto.notice.NoticeUpdateRequestDto;
@@ -9,8 +10,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
-import lombok.RequiredArgsConstructor;
 import springfox.documentation.annotations.ApiIgnore;
 
 @Api(tags = "공지사항 정보 처리 API")

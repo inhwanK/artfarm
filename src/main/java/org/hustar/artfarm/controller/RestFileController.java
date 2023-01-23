@@ -44,9 +44,7 @@ public class RestFileController {
 	public Long upload(@RequestParam("files") MultipartFile multipartFile,
 			@PathVariable("exhibitionIdx") Long exhibitionIdx) throws IOException {
 
-		return exhibitionFileService.uploadFileAndInfo(multipartFile, exhibitionIdx, "exhibition");
+//		return exhibitionFileService.uploadFileAndInfo(multipartFile, exhibitionIdx, "exhibition");
+		return null;
 	}
-
-//	/exhibition/thumbnail
-//	exhibitionFileService.uploadFileAndInfo(multipartFile, exhibitionIdx, "exhibition/");
 }
